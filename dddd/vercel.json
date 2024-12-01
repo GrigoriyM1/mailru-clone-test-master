@@ -18,5 +18,11 @@
         "PATCH"
       ]
     }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"]
+    }
+  }
 }
