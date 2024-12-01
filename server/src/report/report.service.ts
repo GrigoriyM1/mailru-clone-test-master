@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ReportDto } from './dto/report.dto';
 import { MailerService } from '@nestjs-modules/mailer';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service';
 
 @Injectable()
 export class ReportService {

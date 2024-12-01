@@ -1,8 +1,8 @@
 import { Controller, Post, Body, ValidationPipe, UsePipes, BadRequestException } from '@nestjs/common';
 import { StripeService } from './stripe.service';
 import { SubscriptionDto } from './dto/subscription.dto';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { CurrentUser } from 'src/auth/decorators/user.decorator';
+import { Auth } from '../auth/decorators/auth.decorator';
+import { CurrentUser } from '../auth/decorators/user.decorator';
 
 @Controller('stripe')
 export class StripeController {

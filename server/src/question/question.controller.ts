@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, UsePipes, ValidationPipe, Put, Query, UnauthorizedException } from '@nestjs/common';
 import { QuestionService } from './question.service';
 import { QuestionDto } from './dto/question.dto'
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { CurrentUser } from 'src/auth/decorators/user.decorator';
+import { Auth } from '../auth/decorators/auth.decorator';
+import { CurrentUser } from '../auth/decorators/user.decorator';
 import { AddAdditionalDto } from './dto/add-additional.dto';
 import { TimeFrame } from './utils/getTimeFrame';
 

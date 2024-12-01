@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Post, ValidationPipe, UsePipes } from '@nestjs/common';
 import { NotificationService } from './notification.service';
-import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Auth } from '../auth/decorators/auth.decorator';
 import { CreateNotificationDto } from './dto/create-notification.dto';
-import { CurrentUser } from 'src/auth/decorators/user.decorator';
+import { CurrentUser } from '../auth/decorators/user.decorator';
 
 @Controller('notification')
 export class NotificationController {

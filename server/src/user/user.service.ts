@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { hash } from 'argon2';
-import { RegisterDto } from 'src/auth/dto/register.dto';
-import { PrismaService } from 'src/prisma.service';
+import { RegisterDto } from '../auth/dto/register.dto';
+import { PrismaService } from '../prisma.service';
 import { EditProfileDto } from './dto/edit-profile.dto';
 import { EditProfilePageDto } from './dto/edit-profile-page.dto';
 import { GetLeadersType } from './types/get-leaders.types';
 import { getLevel } from './lib/get-level';
-import { MIN_USER } from 'src/user/constants/user.constants';
+import { MIN_USER } from '../user/constants/user.constants';
 
 @Injectable()
 export class UserService {

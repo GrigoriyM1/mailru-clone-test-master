@@ -1,12 +1,12 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { QuestionDto } from './dto/question.dto'
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service';
 import { isTimeUp } from './utils/isTimeUp';
 import { AddAdditionalDto } from './dto/add-additional.dto';
 import { CATEGORIES } from './constants/categories.constants';
 import { getTimeFrame, TimeFrame } from './utils/getTimeFrame';
-import { UserService } from 'src/user/user.service';
-import { MIN_USER } from 'src/user/constants/user.constants';
+import { UserService } from '../user/user.service';
+import { MIN_USER } from '../user/constants/user.constants';
 
 @Injectable()
 export class QuestionService {

@@ -1,10 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service';
 import { AnswerDto } from './dto/answer.dto';
 import { CommentDto } from './dto/comment.dto';
 import { BestAnswerDto } from './dto/best-answer.dto';
 import { UserService } from '../user/user.service';
-import { MIN_USER } from 'src/user/constants/user.constants';
+import { MIN_USER } from '../user/constants/user.constants';
 
 @Injectable()
 export class AnswerService {

@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Post, Query, Res, UnauthorizedException, UsePipes, ValidationPipe } from '@nestjs/common';
-import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Auth } from '../auth/decorators/auth.decorator';
 import { ReportDto } from './dto/report.dto';
 import { ReportService } from './report.service';
 import { Response } from 'express';
-import { CurrentUser } from 'src/auth/decorators/user.decorator';
+import { CurrentUser } from '../auth/decorators/user.decorator';
 
 @Controller('report')
 export class ReportController {

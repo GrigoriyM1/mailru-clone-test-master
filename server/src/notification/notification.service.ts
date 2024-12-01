@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service';
 import { CreateNotificationDto } from './dto/create-notification.dto';
-import { GatewayController } from 'src/gateway/gateway.controller';
+import { GatewayController } from '../gateway/gateway.controller';
 
 @Injectable()
 export class NotificationService {

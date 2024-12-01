@@ -1,6 +1,6 @@
 import { Controller, HttpCode, Post, UploadedFile } from '@nestjs/common';
 import { FilesService } from './files.service';
-import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Auth } from '../auth/decorators/auth.decorator';
 import { FileUpload } from './decorators/files.decorator';
 
 @Controller('files')

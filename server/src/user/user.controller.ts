@@ -1,11 +1,11 @@
 import { GetByEmailDto } from './dto/get-by-email.dto';
 import { Body, Controller, HttpCode, Post, Get, Param, Patch, UploadedFile, Query, UnauthorizedException, Res, Delete, Put } from '@nestjs/common';
 import { UserService } from './user.service';
-import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Auth } from '../auth/decorators/auth.decorator';
 import { EditProfileDto } from './dto/edit-profile.dto';
-import { CurrentUser } from 'src/auth/decorators/user.decorator';
+import { CurrentUser } from '../auth/decorators/user.decorator';
 import { EditProfilePageDto } from './dto/edit-profile-page.dto';
-import { FileUpload } from 'src/files/decorators/files.decorator';
+import { FileUpload } from '../files/decorators/files.decorator';
 import { GetLeadersType } from './types/get-leaders.types';
 import { Response } from 'express'
 
