@@ -19,4 +19,4 @@ NGRok бд хостинг
 
 main.ts путь к prisma папке 
 
-npx prisma generate --schema=src/prisma/schema.prisma 
+prisma vercel 
