@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [ 
+  "routes": [
     {
       "src": "/(.*)",
       "dest": "src/main.ts",
@@ -15,14 +15,9 @@
         "POST",
         "PUT",
         "DELETE",
-        "PATCH"
+        "PATCH",
+        "OPTIONS"
       ]
     }
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "src/*": ["src/*"]
-    }
-  }
+  ]
 }
