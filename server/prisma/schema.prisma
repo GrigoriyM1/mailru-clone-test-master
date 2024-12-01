@@ -9,60 +9,47 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  name     String
-  lastName String
-
-  email       String  @unique
-  linkedEmail String  @unique // TODO: привязанная почта к gmail например и другая, по ней confirm
-  password    String
-  avatar      String?
-
-  phone     String
-  birthdate String
-  gender    String
-
-  points      Int?    @default(50)
-  level       String? @default("Ученик")
-  description String?
-
-  questions      Question[]
-  likedQuestions Question[] @relation("LikedQuestions")
+  id             String     @id @default(cuid())
+  createdAt      DateTime   @default(now()) @map("created_at")
+  updatedAt      DateTime   @updatedAt @map("updated_at")
+  name           String
+  lastName       String
+  email          String     @unique
+  linkedEmail    String     @unique
+  password       String
+  avatar         String?
+  phone          String
+  birthdate      String
+  gender         String
+  points         Int?       @default(50)
+  level          String?    @default("Ученик")
+  description    String?
+  isAdmin        Boolean?   @default(false) @map("is_admin")
+  isVip          Boolean?   @default(false) @map("is_vip")
   answers        Answer[]
-
-  likedAnswers Answer[] @relation("LikedAnswers") // Поле для связи с лайками ответов
-
-  comments Comment[] // Поле для связи с комментариями
-
-  isAdmin Boolean? @default(false) @map("is_admin")
-  isVip   Boolean? @default(false) @map("is_vip")
+  comments       Comment[]
+  questions      Question[]
+  likedAnswers   Answer[]   @relation("LikedAnswers")
+  likedQuestions Question[] @relation("LikedQuestions")
 
   @@map("user")
 }
 
 model Question {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  themeText   String  @map("theme_text")
-  text        String? @default("")
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+  themeText   String       @map("theme_text")
+  text        String?      @default("")
   category    String
   subcategory String
-  // TODO: может потом сделать получать уведомления, разрешить комменты
-
   likes       Int?         @default(0)
-  likedBy     User[]       @relation("LikedQuestions") // Поле для пользователей, которые лайкнули вопрос
   isLeader    Boolean?     @default(false) @map("is_leader")
+  userId      String?
   additionals Additional[] @relation("Additional")
-
-  answers Answer[]
-
-  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String?
+  answers     Answer[]
+  user        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likedBy     User[]       @relation("LikedQuestions")
 
   @@map("question")
 }
@@ -70,31 +57,26 @@ model Question {
 model Additional {
   id         String   @id @default(cuid())
   createdAt  DateTime @default(now()) @map("created_at")
-  question   Question @relation("Additional", fields: [questionId], references: [id], onDelete: Cascade)
   questionId String
   text       String
+  question   Question @relation("Additional", fields: [questionId], references: [id], onDelete: Cascade)
 
   @@map("additional")
 }
 
 model Answer {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
+  id           String    @id @default(cuid())
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
   text         String
-  isBestAnswer Boolean? @default(false) @map("is_best_answer") // TODO: потом сделать чтоб 1 ток такой был 
-
-  question   Question? @relation(fields: [questionId], references: [id])
-  questionId String?
-
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
-
-  likes   Int?   @default(0)
-  likedBy User[] @relation("LikedAnswers") // Поле для пользователей, которые лайкнули ответ
-
-  comments Comment[]
+  isBestAnswer Boolean?  @default(false) @map("is_best_answer")
+  questionId   String?
+  userId       String
+  likes        Int?      @default(0)
+  question     Question? @relation(fields: [questionId], references: [id])
+  user         User      @relation(fields: [userId], references: [id])
+  comments     Comment[]
+  likedBy      User[]    @relation("LikedAnswers")
 
   @@unique([userId, questionId])
   @@map("answer")
@@ -104,42 +86,36 @@ model Comment {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
-
-  text   String
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
-
-  answer   Answer? @relation(fields: [answerId], references: [id])
-  answerId String?
+  text      String
+  userId    String
+  answerId  String?
+  answer    Answer?  @relation(fields: [answerId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 
   @@map("comment")
 }
 
 model Notification {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  type   NotificationType? @default(DEFAULT) // TODO: ТУТ ОСТАНОВИЛСЯ POINTS ТАМ 
-  points Int?
-
-  title    String
-  text     String
-  subtitle String?
-  url      String
-  avatars  String[]
-
-  userId String
-  isRead Boolean? @default(false) @map("is_read")
+  id        String            @id @default(cuid())
+  createdAt DateTime          @default(now()) @map("created_at")
+  updatedAt DateTime          @updatedAt @map("updated_at")
+  type      NotificationType? @default(DEFAULT)
+  points    Int?
+  title     String
+  text      String
+  subtitle  String?
+  url       String
+  avatars   String[]
+  userId    String
+  isRead    Boolean?          @default(false) @map("is_read")
 
   @@map("notification")
 }
 
 model Report {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
+  id          String     @id @default(cuid())
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
   type        ReportType
   elementId   String
   elementLink String
@@ -158,5 +134,3 @@ enum ReportType {
   QUESTION
   ANSWER
 }
-
-// в enum можно и в lower case answer например 

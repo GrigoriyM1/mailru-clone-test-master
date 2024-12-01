@@ -1387,19 +1387,19 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    questions: number
-    likedQuestions: number
     answers: number
-    likedAnswers: number
     comments: number
+    questions: number
+    likedAnswers: number
+    likedQuestions: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    questions?: boolean | UserCountOutputTypeCountQuestionsArgs
-    likedQuestions?: boolean | UserCountOutputTypeCountLikedQuestionsArgs
     answers?: boolean | UserCountOutputTypeCountAnswersArgs
-    likedAnswers?: boolean | UserCountOutputTypeCountLikedAnswersArgs
     comments?: boolean | UserCountOutputTypeCountCommentsArgs
+    questions?: boolean | UserCountOutputTypeCountQuestionsArgs
+    likedAnswers?: boolean | UserCountOutputTypeCountLikedAnswersArgs
+    likedQuestions?: boolean | UserCountOutputTypeCountLikedQuestionsArgs
   }
 
   // Custom InputTypes
@@ -1416,22 +1416,22 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: QuestionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountLikedQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: QuestionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
   export type UserCountOutputTypeCountAnswersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AnswerWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuestionWhereInput
   }
 
   /**
@@ -1444,8 +1444,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CommentWhereInput
+  export type UserCountOutputTypeCountLikedQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuestionWhereInput
   }
 
 
@@ -1454,15 +1454,15 @@ export namespace Prisma {
    */
 
   export type QuestionCountOutputType = {
-    likedBy: number
     additionals: number
     answers: number
+    likedBy: number
   }
 
   export type QuestionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    likedBy?: boolean | QuestionCountOutputTypeCountLikedByArgs
     additionals?: boolean | QuestionCountOutputTypeCountAdditionalsArgs
     answers?: boolean | QuestionCountOutputTypeCountAnswersArgs
+    likedBy?: boolean | QuestionCountOutputTypeCountLikedByArgs
   }
 
   // Custom InputTypes
@@ -1479,13 +1479,6 @@ export namespace Prisma {
   /**
    * QuestionCountOutputType without action
    */
-  export type QuestionCountOutputTypeCountLikedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-  }
-
-  /**
-   * QuestionCountOutputType without action
-   */
   export type QuestionCountOutputTypeCountAdditionalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AdditionalWhereInput
   }
@@ -1497,19 +1490,26 @@ export namespace Prisma {
     where?: AnswerWhereInput
   }
 
+  /**
+   * QuestionCountOutputType without action
+   */
+  export type QuestionCountOutputTypeCountLikedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+  }
+
 
   /**
    * Count Type AnswerCountOutputType
    */
 
   export type AnswerCountOutputType = {
-    likedBy: number
     comments: number
+    likedBy: number
   }
 
   export type AnswerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    likedBy?: boolean | AnswerCountOutputTypeCountLikedByArgs
     comments?: boolean | AnswerCountOutputTypeCountCommentsArgs
+    likedBy?: boolean | AnswerCountOutputTypeCountLikedByArgs
   }
 
   // Custom InputTypes
@@ -1526,15 +1526,15 @@ export namespace Prisma {
   /**
    * AnswerCountOutputType without action
    */
-  export type AnswerCountOutputTypeCountLikedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+  export type AnswerCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
   }
 
   /**
    * AnswerCountOutputType without action
    */
-  export type AnswerCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CommentWhereInput
+  export type AnswerCountOutputTypeCountLikedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
   }
 
 
@@ -1836,11 +1836,11 @@ export namespace Prisma {
     description?: boolean
     isAdmin?: boolean
     isVip?: boolean
-    questions?: boolean | User$questionsArgs<ExtArgs>
-    likedQuestions?: boolean | User$likedQuestionsArgs<ExtArgs>
     answers?: boolean | User$answersArgs<ExtArgs>
-    likedAnswers?: boolean | User$likedAnswersArgs<ExtArgs>
     comments?: boolean | User$commentsArgs<ExtArgs>
+    questions?: boolean | User$questionsArgs<ExtArgs>
+    likedAnswers?: boolean | User$likedAnswersArgs<ExtArgs>
+    likedQuestions?: boolean | User$likedQuestionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1885,11 +1885,11 @@ export namespace Prisma {
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    questions?: boolean | User$questionsArgs<ExtArgs>
-    likedQuestions?: boolean | User$likedQuestionsArgs<ExtArgs>
     answers?: boolean | User$answersArgs<ExtArgs>
-    likedAnswers?: boolean | User$likedAnswersArgs<ExtArgs>
     comments?: boolean | User$commentsArgs<ExtArgs>
+    questions?: boolean | User$questionsArgs<ExtArgs>
+    likedAnswers?: boolean | User$likedAnswersArgs<ExtArgs>
+    likedQuestions?: boolean | User$likedQuestionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1897,11 +1897,11 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      questions: Prisma.$QuestionPayload<ExtArgs>[]
-      likedQuestions: Prisma.$QuestionPayload<ExtArgs>[]
       answers: Prisma.$AnswerPayload<ExtArgs>[]
-      likedAnswers: Prisma.$AnswerPayload<ExtArgs>[]
       comments: Prisma.$CommentPayload<ExtArgs>[]
+      questions: Prisma.$QuestionPayload<ExtArgs>[]
+      likedAnswers: Prisma.$AnswerPayload<ExtArgs>[]
+      likedQuestions: Prisma.$QuestionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2285,11 +2285,11 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    questions<T extends User$questionsArgs<ExtArgs> = {}>(args?: Subset<T, User$questionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findMany"> | Null>
-    likedQuestions<T extends User$likedQuestionsArgs<ExtArgs> = {}>(args?: Subset<T, User$likedQuestionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findMany"> | Null>
     answers<T extends User$answersArgs<ExtArgs> = {}>(args?: Subset<T, User$answersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findMany"> | Null>
-    likedAnswers<T extends User$likedAnswersArgs<ExtArgs> = {}>(args?: Subset<T, User$likedAnswersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findMany"> | Null>
     comments<T extends User$commentsArgs<ExtArgs> = {}>(args?: Subset<T, User$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany"> | Null>
+    questions<T extends User$questionsArgs<ExtArgs> = {}>(args?: Subset<T, User$questionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findMany"> | Null>
+    likedAnswers<T extends User$likedAnswersArgs<ExtArgs> = {}>(args?: Subset<T, User$likedAnswersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findMany"> | Null>
+    likedQuestions<T extends User$likedQuestionsArgs<ExtArgs> = {}>(args?: Subset<T, User$likedQuestionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2650,69 +2650,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.questions
-   */
-  export type User$questionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Question
-     */
-    select?: QuestionSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: QuestionInclude<ExtArgs> | null
-    where?: QuestionWhereInput
-    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
-    cursor?: QuestionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
-  }
-
-  /**
-   * User.likedQuestions
-   */
-  export type User$likedQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Question
-     */
-    select?: QuestionSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: QuestionInclude<ExtArgs> | null
-    where?: QuestionWhereInput
-    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
-    cursor?: QuestionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
-  }
-
-  /**
    * User.answers
    */
   export type User$answersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Answer
-     */
-    select?: AnswerSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnswerInclude<ExtArgs> | null
-    where?: AnswerWhereInput
-    orderBy?: AnswerOrderByWithRelationInput | AnswerOrderByWithRelationInput[]
-    cursor?: AnswerWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: AnswerScalarFieldEnum | AnswerScalarFieldEnum[]
-  }
-
-  /**
-   * User.likedAnswers
-   */
-  export type User$likedAnswersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Answer
      */
@@ -2747,6 +2687,66 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * User.questions
+   */
+  export type User$questionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Question
+     */
+    select?: QuestionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuestionInclude<ExtArgs> | null
+    where?: QuestionWhereInput
+    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
+    cursor?: QuestionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
+  }
+
+  /**
+   * User.likedAnswers
+   */
+  export type User$likedAnswersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Answer
+     */
+    select?: AnswerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AnswerInclude<ExtArgs> | null
+    where?: AnswerWhereInput
+    orderBy?: AnswerOrderByWithRelationInput | AnswerOrderByWithRelationInput[]
+    cursor?: AnswerWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AnswerScalarFieldEnum | AnswerScalarFieldEnum[]
+  }
+
+  /**
+   * User.likedQuestions
+   */
+  export type User$likedQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Question
+     */
+    select?: QuestionSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuestionInclude<ExtArgs> | null
+    where?: QuestionWhereInput
+    orderBy?: QuestionOrderByWithRelationInput | QuestionOrderByWithRelationInput[]
+    cursor?: QuestionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: QuestionScalarFieldEnum | QuestionScalarFieldEnum[]
   }
 
   /**
@@ -3002,10 +3002,10 @@ export namespace Prisma {
     likes?: boolean
     isLeader?: boolean
     userId?: boolean
-    likedBy?: boolean | Question$likedByArgs<ExtArgs>
     additionals?: boolean | Question$additionalsArgs<ExtArgs>
     answers?: boolean | Question$answersArgs<ExtArgs>
     user?: boolean | Question$userArgs<ExtArgs>
+    likedBy?: boolean | Question$likedByArgs<ExtArgs>
     _count?: boolean | QuestionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["question"]>
 
@@ -3037,10 +3037,10 @@ export namespace Prisma {
   }
 
   export type QuestionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    likedBy?: boolean | Question$likedByArgs<ExtArgs>
     additionals?: boolean | Question$additionalsArgs<ExtArgs>
     answers?: boolean | Question$answersArgs<ExtArgs>
     user?: boolean | Question$userArgs<ExtArgs>
+    likedBy?: boolean | Question$likedByArgs<ExtArgs>
     _count?: boolean | QuestionCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type QuestionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3050,10 +3050,10 @@ export namespace Prisma {
   export type $QuestionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Question"
     objects: {
-      likedBy: Prisma.$UserPayload<ExtArgs>[]
       additionals: Prisma.$AdditionalPayload<ExtArgs>[]
       answers: Prisma.$AnswerPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs> | null
+      likedBy: Prisma.$UserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3430,10 +3430,10 @@ export namespace Prisma {
    */
   export interface Prisma__QuestionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    likedBy<T extends Question$likedByArgs<ExtArgs> = {}>(args?: Subset<T, Question$likedByArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
     additionals<T extends Question$additionalsArgs<ExtArgs> = {}>(args?: Subset<T, Question$additionalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdditionalPayload<ExtArgs>, T, "findMany"> | Null>
     answers<T extends Question$answersArgs<ExtArgs> = {}>(args?: Subset<T, Question$answersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findMany"> | Null>
     user<T extends Question$userArgs<ExtArgs> = {}>(args?: Subset<T, Question$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    likedBy<T extends Question$likedByArgs<ExtArgs> = {}>(args?: Subset<T, Question$likedByArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3791,26 +3791,6 @@ export namespace Prisma {
   }
 
   /**
-   * Question.likedBy
-   */
-  export type Question$likedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
-  }
-
-  /**
    * Question.additionals
    */
   export type Question$additionalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3863,6 +3843,26 @@ export namespace Prisma {
      */
     include?: UserInclude<ExtArgs> | null
     where?: UserWhereInput
+  }
+
+  /**
+   * Question.likedBy
+   */
+  export type Question$likedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    cursor?: UserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
@@ -5025,8 +5025,8 @@ export namespace Prisma {
     likes?: boolean
     question?: boolean | Answer$questionArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    likedBy?: boolean | Answer$likedByArgs<ExtArgs>
     comments?: boolean | Answer$commentsArgs<ExtArgs>
+    likedBy?: boolean | Answer$likedByArgs<ExtArgs>
     _count?: boolean | AnswerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["answer"]>
 
@@ -5057,8 +5057,8 @@ export namespace Prisma {
   export type AnswerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     question?: boolean | Answer$questionArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    likedBy?: boolean | Answer$likedByArgs<ExtArgs>
     comments?: boolean | Answer$commentsArgs<ExtArgs>
+    likedBy?: boolean | Answer$likedByArgs<ExtArgs>
     _count?: boolean | AnswerCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AnswerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5071,8 +5071,8 @@ export namespace Prisma {
     objects: {
       question: Prisma.$QuestionPayload<ExtArgs> | null
       user: Prisma.$UserPayload<ExtArgs>
-      likedBy: Prisma.$UserPayload<ExtArgs>[]
       comments: Prisma.$CommentPayload<ExtArgs>[]
+      likedBy: Prisma.$UserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5449,8 +5449,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     question<T extends Answer$questionArgs<ExtArgs> = {}>(args?: Subset<T, Answer$questionArgs<ExtArgs>>): Prisma__QuestionClient<$Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    likedBy<T extends Answer$likedByArgs<ExtArgs> = {}>(args?: Subset<T, Answer$likedByArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
     comments<T extends Answer$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Answer$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany"> | Null>
+    likedBy<T extends Answer$likedByArgs<ExtArgs> = {}>(args?: Subset<T, Answer$likedByArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5821,26 +5821,6 @@ export namespace Prisma {
   }
 
   /**
-   * Answer.likedBy
-   */
-  export type Answer$likedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
-  }
-
-  /**
    * Answer.comments
    */
   export type Answer$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5858,6 +5838,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Answer.likedBy
+   */
+  export type Answer$likedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    cursor?: UserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
@@ -6047,8 +6047,8 @@ export namespace Prisma {
     text?: boolean
     userId?: boolean
     answerId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     answer?: boolean | Comment$answerArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6058,8 +6058,8 @@ export namespace Prisma {
     text?: boolean
     userId?: boolean
     answerId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     answer?: boolean | Comment$answerArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectScalar = {
@@ -6072,19 +6072,19 @@ export namespace Prisma {
   }
 
   export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     answer?: boolean | Comment$answerArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type CommentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     answer?: boolean | Comment$answerArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Comment"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       answer: Prisma.$AnswerPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6457,8 +6457,8 @@ export namespace Prisma {
    */
   export interface Prisma__CommentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     answer<T extends Comment$answerArgs<ExtArgs> = {}>(args?: Subset<T, Comment$answerArgs<ExtArgs>>): Prisma__AnswerClient<$Result.GetResult<Prisma.$AnswerPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9012,11 +9012,11 @@ export namespace Prisma {
     description?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolNullableFilter<"User"> | boolean | null
     isVip?: BoolNullableFilter<"User"> | boolean | null
-    questions?: QuestionListRelationFilter
-    likedQuestions?: QuestionListRelationFilter
     answers?: AnswerListRelationFilter
-    likedAnswers?: AnswerListRelationFilter
     comments?: CommentListRelationFilter
+    questions?: QuestionListRelationFilter
+    likedAnswers?: AnswerListRelationFilter
+    likedQuestions?: QuestionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -9037,11 +9037,11 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     isAdmin?: SortOrderInput | SortOrder
     isVip?: SortOrderInput | SortOrder
-    questions?: QuestionOrderByRelationAggregateInput
-    likedQuestions?: QuestionOrderByRelationAggregateInput
     answers?: AnswerOrderByRelationAggregateInput
-    likedAnswers?: AnswerOrderByRelationAggregateInput
     comments?: CommentOrderByRelationAggregateInput
+    questions?: QuestionOrderByRelationAggregateInput
+    likedAnswers?: AnswerOrderByRelationAggregateInput
+    likedQuestions?: QuestionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -9065,11 +9065,11 @@ export namespace Prisma {
     description?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolNullableFilter<"User"> | boolean | null
     isVip?: BoolNullableFilter<"User"> | boolean | null
-    questions?: QuestionListRelationFilter
-    likedQuestions?: QuestionListRelationFilter
     answers?: AnswerListRelationFilter
-    likedAnswers?: AnswerListRelationFilter
     comments?: CommentListRelationFilter
+    questions?: QuestionListRelationFilter
+    likedAnswers?: AnswerListRelationFilter
+    likedQuestions?: QuestionListRelationFilter
   }, "id" | "email" | "linkedEmail">
 
   export type UserOrderByWithAggregationInput = {
@@ -9134,10 +9134,10 @@ export namespace Prisma {
     likes?: IntNullableFilter<"Question"> | number | null
     isLeader?: BoolNullableFilter<"Question"> | boolean | null
     userId?: StringNullableFilter<"Question"> | string | null
-    likedBy?: UserListRelationFilter
     additionals?: AdditionalListRelationFilter
     answers?: AnswerListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    likedBy?: UserListRelationFilter
   }
 
   export type QuestionOrderByWithRelationInput = {
@@ -9151,10 +9151,10 @@ export namespace Prisma {
     likes?: SortOrderInput | SortOrder
     isLeader?: SortOrderInput | SortOrder
     userId?: SortOrderInput | SortOrder
-    likedBy?: UserOrderByRelationAggregateInput
     additionals?: AdditionalOrderByRelationAggregateInput
     answers?: AnswerOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
+    likedBy?: UserOrderByRelationAggregateInput
   }
 
   export type QuestionWhereUniqueInput = Prisma.AtLeast<{
@@ -9171,10 +9171,10 @@ export namespace Prisma {
     likes?: IntNullableFilter<"Question"> | number | null
     isLeader?: BoolNullableFilter<"Question"> | boolean | null
     userId?: StringNullableFilter<"Question"> | string | null
-    likedBy?: UserListRelationFilter
     additionals?: AdditionalListRelationFilter
     answers?: AnswerListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    likedBy?: UserListRelationFilter
   }, "id">
 
   export type QuestionOrderByWithAggregationInput = {
@@ -9275,8 +9275,8 @@ export namespace Prisma {
     likes?: IntNullableFilter<"Answer"> | number | null
     question?: XOR<QuestionNullableScalarRelationFilter, QuestionWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    likedBy?: UserListRelationFilter
     comments?: CommentListRelationFilter
+    likedBy?: UserListRelationFilter
   }
 
   export type AnswerOrderByWithRelationInput = {
@@ -9290,8 +9290,8 @@ export namespace Prisma {
     likes?: SortOrderInput | SortOrder
     question?: QuestionOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
-    likedBy?: UserOrderByRelationAggregateInput
     comments?: CommentOrderByRelationAggregateInput
+    likedBy?: UserOrderByRelationAggregateInput
   }
 
   export type AnswerWhereUniqueInput = Prisma.AtLeast<{
@@ -9309,8 +9309,8 @@ export namespace Prisma {
     likes?: IntNullableFilter<"Answer"> | number | null
     question?: XOR<QuestionNullableScalarRelationFilter, QuestionWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    likedBy?: UserListRelationFilter
     comments?: CommentListRelationFilter
+    likedBy?: UserListRelationFilter
   }, "id" | "userId_questionId">
 
   export type AnswerOrderByWithAggregationInput = {
@@ -9353,8 +9353,8 @@ export namespace Prisma {
     text?: StringFilter<"Comment"> | string
     userId?: StringFilter<"Comment"> | string
     answerId?: StringNullableFilter<"Comment"> | string | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     answer?: XOR<AnswerNullableScalarRelationFilter, AnswerWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type CommentOrderByWithRelationInput = {
@@ -9364,8 +9364,8 @@ export namespace Prisma {
     text?: SortOrder
     userId?: SortOrder
     answerId?: SortOrderInput | SortOrder
-    user?: UserOrderByWithRelationInput
     answer?: AnswerOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type CommentWhereUniqueInput = Prisma.AtLeast<{
@@ -9378,8 +9378,8 @@ export namespace Prisma {
     text?: StringFilter<"Comment"> | string
     userId?: StringFilter<"Comment"> | string
     answerId?: StringNullableFilter<"Comment"> | string | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     answer?: XOR<AnswerNullableScalarRelationFilter, AnswerWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type CommentOrderByWithAggregationInput = {
@@ -9580,11 +9580,11 @@ export namespace Prisma {
     description?: string | null
     isAdmin?: boolean | null
     isVip?: boolean | null
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
     answers?: AnswerCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
     comments?: CommentCreateNestedManyWithoutUserInput
+    questions?: QuestionCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -9605,11 +9605,11 @@ export namespace Prisma {
     description?: string | null
     isAdmin?: boolean | null
     isVip?: boolean | null
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
     answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
   }
 
   export type UserUpdateInput = {
@@ -9630,11 +9630,11 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
     isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
     answers?: AnswerUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
+    questions?: QuestionUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -9655,11 +9655,11 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
     isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
     answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -9732,10 +9732,10 @@ export namespace Prisma {
     subcategory: string
     likes?: number | null
     isLeader?: boolean | null
-    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
     additionals?: AdditionalCreateNestedManyWithoutQuestionInput
     answers?: AnswerCreateNestedManyWithoutQuestionInput
     user?: UserCreateNestedOneWithoutQuestionsInput
+    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionUncheckedCreateInput = {
@@ -9749,9 +9749,9 @@ export namespace Prisma {
     likes?: number | null
     isLeader?: boolean | null
     userId?: string | null
-    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
     additionals?: AdditionalUncheckedCreateNestedManyWithoutQuestionInput
     answers?: AnswerUncheckedCreateNestedManyWithoutQuestionInput
+    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionUpdateInput = {
@@ -9764,10 +9764,10 @@ export namespace Prisma {
     subcategory?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
     additionals?: AdditionalUpdateManyWithoutQuestionNestedInput
     answers?: AnswerUpdateManyWithoutQuestionNestedInput
     user?: UserUpdateOneWithoutQuestionsNestedInput
+    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateInput = {
@@ -9781,9 +9781,9 @@ export namespace Prisma {
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
     additionals?: AdditionalUncheckedUpdateManyWithoutQuestionNestedInput
     answers?: AnswerUncheckedUpdateManyWithoutQuestionNestedInput
+    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type QuestionCreateManyInput = {
@@ -9881,8 +9881,8 @@ export namespace Prisma {
     likes?: number | null
     question?: QuestionCreateNestedOneWithoutAnswersInput
     user: UserCreateNestedOneWithoutAnswersInput
-    likedBy?: UserCreateNestedManyWithoutLikedAnswersInput
     comments?: CommentCreateNestedManyWithoutAnswerInput
+    likedBy?: UserCreateNestedManyWithoutLikedAnswersInput
   }
 
   export type AnswerUncheckedCreateInput = {
@@ -9894,8 +9894,8 @@ export namespace Prisma {
     questionId?: string | null
     userId: string
     likes?: number | null
-    likedBy?: UserUncheckedCreateNestedManyWithoutLikedAnswersInput
     comments?: CommentUncheckedCreateNestedManyWithoutAnswerInput
+    likedBy?: UserUncheckedCreateNestedManyWithoutLikedAnswersInput
   }
 
   export type AnswerUpdateInput = {
@@ -9907,8 +9907,8 @@ export namespace Prisma {
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     question?: QuestionUpdateOneWithoutAnswersNestedInput
     user?: UserUpdateOneRequiredWithoutAnswersNestedInput
-    likedBy?: UserUpdateManyWithoutLikedAnswersNestedInput
     comments?: CommentUpdateManyWithoutAnswerNestedInput
+    likedBy?: UserUpdateManyWithoutLikedAnswersNestedInput
   }
 
   export type AnswerUncheckedUpdateInput = {
@@ -9920,8 +9920,8 @@ export namespace Prisma {
     questionId?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
-    likedBy?: UserUncheckedUpdateManyWithoutLikedAnswersNestedInput
     comments?: CommentUncheckedUpdateManyWithoutAnswerNestedInput
+    likedBy?: UserUncheckedUpdateManyWithoutLikedAnswersNestedInput
   }
 
   export type AnswerCreateManyInput = {
@@ -9960,8 +9960,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     text: string
-    user: UserCreateNestedOneWithoutCommentsInput
     answer?: AnswerCreateNestedOneWithoutCommentsInput
+    user: UserCreateNestedOneWithoutCommentsInput
   }
 
   export type CommentUncheckedCreateInput = {
@@ -9978,8 +9978,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     text?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
     answer?: AnswerUpdateOneWithoutCommentsNestedInput
+    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
   }
 
   export type CommentUncheckedUpdateInput = {
@@ -10255,12 +10255,6 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type QuestionListRelationFilter = {
-    every?: QuestionWhereInput
-    some?: QuestionWhereInput
-    none?: QuestionWhereInput
-  }
-
   export type AnswerListRelationFilter = {
     every?: AnswerWhereInput
     some?: AnswerWhereInput
@@ -10273,13 +10267,15 @@ export namespace Prisma {
     none?: CommentWhereInput
   }
 
+  export type QuestionListRelationFilter = {
+    every?: QuestionWhereInput
+    some?: QuestionWhereInput
+    none?: QuestionWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
-  }
-
-  export type QuestionOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type AnswerOrderByRelationAggregateInput = {
@@ -10287,6 +10283,10 @@ export namespace Prisma {
   }
 
   export type CommentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type QuestionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -10432,12 +10432,6 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
-  export type UserListRelationFilter = {
-    every?: UserWhereInput
-    some?: UserWhereInput
-    none?: UserWhereInput
-  }
-
   export type AdditionalListRelationFilter = {
     every?: AdditionalWhereInput
     some?: AdditionalWhereInput
@@ -10449,11 +10443,17 @@ export namespace Prisma {
     isNot?: UserWhereInput | null
   }
 
-  export type UserOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type UserListRelationFilter = {
+    every?: UserWhereInput
+    some?: UserWhereInput
+    none?: UserWhereInput
   }
 
   export type AdditionalOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -10744,24 +10744,25 @@ export namespace Prisma {
     _max?: NestedEnumReportTypeFilter<$PrismaModel>
   }
 
-  export type QuestionCreateNestedManyWithoutUserInput = {
-    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
-    createMany?: QuestionCreateManyUserInputEnvelope
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-  }
-
-  export type QuestionCreateNestedManyWithoutLikedByInput = {
-    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-  }
-
   export type AnswerCreateNestedManyWithoutUserInput = {
     create?: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput> | AnswerCreateWithoutUserInput[] | AnswerUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AnswerCreateOrConnectWithoutUserInput | AnswerCreateOrConnectWithoutUserInput[]
     createMany?: AnswerCreateManyUserInputEnvelope
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
+  }
+
+  export type CommentCreateNestedManyWithoutUserInput = {
+    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
+    createMany?: CommentCreateManyUserInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type QuestionCreateNestedManyWithoutUserInput = {
+    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
+    createMany?: QuestionCreateManyUserInputEnvelope
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
   }
 
   export type AnswerCreateNestedManyWithoutLikedByInput = {
@@ -10770,7 +10771,20 @@ export namespace Prisma {
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
   }
 
-  export type CommentCreateNestedManyWithoutUserInput = {
+  export type QuestionCreateNestedManyWithoutLikedByInput = {
+    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+  }
+
+  export type AnswerUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput> | AnswerCreateWithoutUserInput[] | AnswerUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AnswerCreateOrConnectWithoutUserInput | AnswerCreateOrConnectWithoutUserInput[]
+    createMany?: AnswerCreateManyUserInputEnvelope
+    connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
+  }
+
+  export type CommentUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
     createMany?: CommentCreateManyUserInputEnvelope
@@ -10784,30 +10798,16 @@ export namespace Prisma {
     connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
   }
 
-  export type QuestionUncheckedCreateNestedManyWithoutLikedByInput = {
-    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-  }
-
-  export type AnswerUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput> | AnswerCreateWithoutUserInput[] | AnswerUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: AnswerCreateOrConnectWithoutUserInput | AnswerCreateOrConnectWithoutUserInput[]
-    createMany?: AnswerCreateManyUserInputEnvelope
-    connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
-  }
-
   export type AnswerUncheckedCreateNestedManyWithoutLikedByInput = {
     create?: XOR<AnswerCreateWithoutLikedByInput, AnswerUncheckedCreateWithoutLikedByInput> | AnswerCreateWithoutLikedByInput[] | AnswerUncheckedCreateWithoutLikedByInput[]
     connectOrCreate?: AnswerCreateOrConnectWithoutLikedByInput | AnswerCreateOrConnectWithoutLikedByInput[]
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
   }
 
-  export type CommentUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
-    createMany?: CommentCreateManyUserInputEnvelope
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  export type QuestionUncheckedCreateNestedManyWithoutLikedByInput = {
+    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -10834,33 +10834,6 @@ export namespace Prisma {
     set?: boolean | null
   }
 
-  export type QuestionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
-    upsert?: QuestionUpsertWithWhereUniqueWithoutUserInput | QuestionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: QuestionCreateManyUserInputEnvelope
-    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    update?: QuestionUpdateWithWhereUniqueWithoutUserInput | QuestionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: QuestionUpdateManyWithWhereWithoutUserInput | QuestionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
-  }
-
-  export type QuestionUpdateManyWithoutLikedByNestedInput = {
-    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
-    upsert?: QuestionUpsertWithWhereUniqueWithoutLikedByInput | QuestionUpsertWithWhereUniqueWithoutLikedByInput[]
-    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    update?: QuestionUpdateWithWhereUniqueWithoutLikedByInput | QuestionUpdateWithWhereUniqueWithoutLikedByInput[]
-    updateMany?: QuestionUpdateManyWithWhereWithoutLikedByInput | QuestionUpdateManyWithWhereWithoutLikedByInput[]
-    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
-  }
-
   export type AnswerUpdateManyWithoutUserNestedInput = {
     create?: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput> | AnswerCreateWithoutUserInput[] | AnswerUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AnswerCreateOrConnectWithoutUserInput | AnswerCreateOrConnectWithoutUserInput[]
@@ -10873,6 +10846,34 @@ export namespace Prisma {
     update?: AnswerUpdateWithWhereUniqueWithoutUserInput | AnswerUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AnswerUpdateManyWithWhereWithoutUserInput | AnswerUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
+  }
+
+  export type CommentUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutUserInput | CommentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CommentCreateManyUserInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutUserInput | CommentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutUserInput | CommentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type QuestionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<QuestionCreateWithoutUserInput, QuestionUncheckedCreateWithoutUserInput> | QuestionCreateWithoutUserInput[] | QuestionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutUserInput | QuestionCreateOrConnectWithoutUserInput[]
+    upsert?: QuestionUpsertWithWhereUniqueWithoutUserInput | QuestionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: QuestionCreateManyUserInputEnvelope
+    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    update?: QuestionUpdateWithWhereUniqueWithoutUserInput | QuestionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: QuestionUpdateManyWithWhereWithoutUserInput | QuestionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
   }
 
   export type AnswerUpdateManyWithoutLikedByNestedInput = {
@@ -10888,7 +10889,34 @@ export namespace Prisma {
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
   }
 
-  export type CommentUpdateManyWithoutUserNestedInput = {
+  export type QuestionUpdateManyWithoutLikedByNestedInput = {
+    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
+    upsert?: QuestionUpsertWithWhereUniqueWithoutLikedByInput | QuestionUpsertWithWhereUniqueWithoutLikedByInput[]
+    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    update?: QuestionUpdateWithWhereUniqueWithoutLikedByInput | QuestionUpdateWithWhereUniqueWithoutLikedByInput[]
+    updateMany?: QuestionUpdateManyWithWhereWithoutLikedByInput | QuestionUpdateManyWithWhereWithoutLikedByInput[]
+    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
+  }
+
+  export type AnswerUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput> | AnswerCreateWithoutUserInput[] | AnswerUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AnswerCreateOrConnectWithoutUserInput | AnswerCreateOrConnectWithoutUserInput[]
+    upsert?: AnswerUpsertWithWhereUniqueWithoutUserInput | AnswerUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AnswerCreateManyUserInputEnvelope
+    set?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
+    disconnect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
+    delete?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
+    connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
+    update?: AnswerUpdateWithWhereUniqueWithoutUserInput | AnswerUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AnswerUpdateManyWithWhereWithoutUserInput | AnswerUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
+  }
+
+  export type CommentUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
     upsert?: CommentUpsertWithWhereUniqueWithoutUserInput | CommentUpsertWithWhereUniqueWithoutUserInput[]
@@ -10916,33 +10944,6 @@ export namespace Prisma {
     deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
   }
 
-  export type QuestionUncheckedUpdateManyWithoutLikedByNestedInput = {
-    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
-    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
-    upsert?: QuestionUpsertWithWhereUniqueWithoutLikedByInput | QuestionUpsertWithWhereUniqueWithoutLikedByInput[]
-    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
-    update?: QuestionUpdateWithWhereUniqueWithoutLikedByInput | QuestionUpdateWithWhereUniqueWithoutLikedByInput[]
-    updateMany?: QuestionUpdateManyWithWhereWithoutLikedByInput | QuestionUpdateManyWithWhereWithoutLikedByInput[]
-    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
-  }
-
-  export type AnswerUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput> | AnswerCreateWithoutUserInput[] | AnswerUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: AnswerCreateOrConnectWithoutUserInput | AnswerCreateOrConnectWithoutUserInput[]
-    upsert?: AnswerUpsertWithWhereUniqueWithoutUserInput | AnswerUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: AnswerCreateManyUserInputEnvelope
-    set?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
-    disconnect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
-    delete?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
-    connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
-    update?: AnswerUpdateWithWhereUniqueWithoutUserInput | AnswerUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: AnswerUpdateManyWithWhereWithoutUserInput | AnswerUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
-  }
-
   export type AnswerUncheckedUpdateManyWithoutLikedByNestedInput = {
     create?: XOR<AnswerCreateWithoutLikedByInput, AnswerUncheckedCreateWithoutLikedByInput> | AnswerCreateWithoutLikedByInput[] | AnswerUncheckedCreateWithoutLikedByInput[]
     connectOrCreate?: AnswerCreateOrConnectWithoutLikedByInput | AnswerCreateOrConnectWithoutLikedByInput[]
@@ -10956,24 +10957,17 @@ export namespace Prisma {
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
   }
 
-  export type CommentUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput> | CommentCreateWithoutUserInput[] | CommentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutUserInput | CommentUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: CommentCreateManyUserInputEnvelope
-    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutUserInput | CommentUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutUserInput | CommentUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
-  }
-
-  export type UserCreateNestedManyWithoutLikedQuestionsInput = {
-    create?: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput> | UserCreateWithoutLikedQuestionsInput[] | UserUncheckedCreateWithoutLikedQuestionsInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutLikedQuestionsInput | UserCreateOrConnectWithoutLikedQuestionsInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type QuestionUncheckedUpdateManyWithoutLikedByNestedInput = {
+    create?: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput> | QuestionCreateWithoutLikedByInput[] | QuestionUncheckedCreateWithoutLikedByInput[]
+    connectOrCreate?: QuestionCreateOrConnectWithoutLikedByInput | QuestionCreateOrConnectWithoutLikedByInput[]
+    upsert?: QuestionUpsertWithWhereUniqueWithoutLikedByInput | QuestionUpsertWithWhereUniqueWithoutLikedByInput[]
+    set?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    disconnect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    delete?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    connect?: QuestionWhereUniqueInput | QuestionWhereUniqueInput[]
+    update?: QuestionUpdateWithWhereUniqueWithoutLikedByInput | QuestionUpdateWithWhereUniqueWithoutLikedByInput[]
+    updateMany?: QuestionUpdateManyWithWhereWithoutLikedByInput | QuestionUpdateManyWithWhereWithoutLikedByInput[]
+    deleteMany?: QuestionScalarWhereInput | QuestionScalarWhereInput[]
   }
 
   export type AdditionalCreateNestedManyWithoutQuestionInput = {
@@ -10996,7 +10990,7 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUncheckedCreateNestedManyWithoutLikedQuestionsInput = {
+  export type UserCreateNestedManyWithoutLikedQuestionsInput = {
     create?: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput> | UserCreateWithoutLikedQuestionsInput[] | UserUncheckedCreateWithoutLikedQuestionsInput[]
     connectOrCreate?: UserCreateOrConnectWithoutLikedQuestionsInput | UserCreateOrConnectWithoutLikedQuestionsInput[]
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
@@ -11016,17 +11010,10 @@ export namespace Prisma {
     connect?: AnswerWhereUniqueInput | AnswerWhereUniqueInput[]
   }
 
-  export type UserUpdateManyWithoutLikedQuestionsNestedInput = {
+  export type UserUncheckedCreateNestedManyWithoutLikedQuestionsInput = {
     create?: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput> | UserCreateWithoutLikedQuestionsInput[] | UserUncheckedCreateWithoutLikedQuestionsInput[]
     connectOrCreate?: UserCreateOrConnectWithoutLikedQuestionsInput | UserCreateOrConnectWithoutLikedQuestionsInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutLikedQuestionsInput | UserUpsertWithWhereUniqueWithoutLikedQuestionsInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutLikedQuestionsInput | UserUpdateWithWhereUniqueWithoutLikedQuestionsInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutLikedQuestionsInput | UserUpdateManyWithWhereWithoutLikedQuestionsInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
   export type AdditionalUpdateManyWithoutQuestionNestedInput = {
@@ -11067,7 +11054,7 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutQuestionsInput, UserUpdateWithoutQuestionsInput>, UserUncheckedUpdateWithoutQuestionsInput>
   }
 
-  export type UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput = {
+  export type UserUpdateManyWithoutLikedQuestionsNestedInput = {
     create?: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput> | UserCreateWithoutLikedQuestionsInput[] | UserUncheckedCreateWithoutLikedQuestionsInput[]
     connectOrCreate?: UserCreateOrConnectWithoutLikedQuestionsInput | UserCreateOrConnectWithoutLikedQuestionsInput[]
     upsert?: UserUpsertWithWhereUniqueWithoutLikedQuestionsInput | UserUpsertWithWhereUniqueWithoutLikedQuestionsInput[]
@@ -11108,6 +11095,19 @@ export namespace Prisma {
     deleteMany?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
   }
 
+  export type UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput = {
+    create?: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput> | UserCreateWithoutLikedQuestionsInput[] | UserUncheckedCreateWithoutLikedQuestionsInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutLikedQuestionsInput | UserCreateOrConnectWithoutLikedQuestionsInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutLikedQuestionsInput | UserUpsertWithWhereUniqueWithoutLikedQuestionsInput[]
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutLikedQuestionsInput | UserUpdateWithWhereUniqueWithoutLikedQuestionsInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutLikedQuestionsInput | UserUpdateManyWithWhereWithoutLikedQuestionsInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
   export type QuestionCreateNestedOneWithoutAdditionalsInput = {
     create?: XOR<QuestionCreateWithoutAdditionalsInput, QuestionUncheckedCreateWithoutAdditionalsInput>
     connectOrCreate?: QuestionCreateOrConnectWithoutAdditionalsInput
@@ -11134,12 +11134,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type UserCreateNestedManyWithoutLikedAnswersInput = {
-    create?: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput> | UserCreateWithoutLikedAnswersInput[] | UserUncheckedCreateWithoutLikedAnswersInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutLikedAnswersInput | UserCreateOrConnectWithoutLikedAnswersInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-  }
-
   export type CommentCreateNestedManyWithoutAnswerInput = {
     create?: XOR<CommentCreateWithoutAnswerInput, CommentUncheckedCreateWithoutAnswerInput> | CommentCreateWithoutAnswerInput[] | CommentUncheckedCreateWithoutAnswerInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutAnswerInput | CommentCreateOrConnectWithoutAnswerInput[]
@@ -11147,7 +11141,7 @@ export namespace Prisma {
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutLikedAnswersInput = {
+  export type UserCreateNestedManyWithoutLikedAnswersInput = {
     create?: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput> | UserCreateWithoutLikedAnswersInput[] | UserUncheckedCreateWithoutLikedAnswersInput[]
     connectOrCreate?: UserCreateOrConnectWithoutLikedAnswersInput | UserCreateOrConnectWithoutLikedAnswersInput[]
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
@@ -11158,6 +11152,12 @@ export namespace Prisma {
     connectOrCreate?: CommentCreateOrConnectWithoutAnswerInput | CommentCreateOrConnectWithoutAnswerInput[]
     createMany?: CommentCreateManyAnswerInputEnvelope
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type UserUncheckedCreateNestedManyWithoutLikedAnswersInput = {
+    create?: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput> | UserCreateWithoutLikedAnswersInput[] | UserUncheckedCreateWithoutLikedAnswersInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutLikedAnswersInput | UserCreateOrConnectWithoutLikedAnswersInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
   export type QuestionUpdateOneWithoutAnswersNestedInput = {
@@ -11178,19 +11178,6 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAnswersInput, UserUpdateWithoutAnswersInput>, UserUncheckedUpdateWithoutAnswersInput>
   }
 
-  export type UserUpdateManyWithoutLikedAnswersNestedInput = {
-    create?: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput> | UserCreateWithoutLikedAnswersInput[] | UserUncheckedCreateWithoutLikedAnswersInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutLikedAnswersInput | UserCreateOrConnectWithoutLikedAnswersInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutLikedAnswersInput | UserUpsertWithWhereUniqueWithoutLikedAnswersInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutLikedAnswersInput | UserUpdateWithWhereUniqueWithoutLikedAnswersInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutLikedAnswersInput | UserUpdateManyWithWhereWithoutLikedAnswersInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
-  }
-
   export type CommentUpdateManyWithoutAnswerNestedInput = {
     create?: XOR<CommentCreateWithoutAnswerInput, CommentUncheckedCreateWithoutAnswerInput> | CommentCreateWithoutAnswerInput[] | CommentUncheckedCreateWithoutAnswerInput[]
     connectOrCreate?: CommentCreateOrConnectWithoutAnswerInput | CommentCreateOrConnectWithoutAnswerInput[]
@@ -11205,7 +11192,7 @@ export namespace Prisma {
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type UserUncheckedUpdateManyWithoutLikedAnswersNestedInput = {
+  export type UserUpdateManyWithoutLikedAnswersNestedInput = {
     create?: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput> | UserCreateWithoutLikedAnswersInput[] | UserUncheckedCreateWithoutLikedAnswersInput[]
     connectOrCreate?: UserCreateOrConnectWithoutLikedAnswersInput | UserCreateOrConnectWithoutLikedAnswersInput[]
     upsert?: UserUpsertWithWhereUniqueWithoutLikedAnswersInput | UserUpsertWithWhereUniqueWithoutLikedAnswersInput[]
@@ -11232,10 +11219,17 @@ export namespace Prisma {
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutCommentsInput = {
-    create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
-    connect?: UserWhereUniqueInput
+  export type UserUncheckedUpdateManyWithoutLikedAnswersNestedInput = {
+    create?: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput> | UserCreateWithoutLikedAnswersInput[] | UserUncheckedCreateWithoutLikedAnswersInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutLikedAnswersInput | UserCreateOrConnectWithoutLikedAnswersInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutLikedAnswersInput | UserUpsertWithWhereUniqueWithoutLikedAnswersInput[]
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutLikedAnswersInput | UserUpdateWithWhereUniqueWithoutLikedAnswersInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutLikedAnswersInput | UserUpdateManyWithWhereWithoutLikedAnswersInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
   export type AnswerCreateNestedOneWithoutCommentsInput = {
@@ -11244,12 +11238,10 @@ export namespace Prisma {
     connect?: AnswerWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutCommentsNestedInput = {
+  export type UserCreateNestedOneWithoutCommentsInput = {
     create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
     connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
-    upsert?: UserUpsertWithoutCommentsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommentsInput, UserUpdateWithoutCommentsInput>, UserUncheckedUpdateWithoutCommentsInput>
   }
 
   export type AnswerUpdateOneWithoutCommentsNestedInput = {
@@ -11260,6 +11252,14 @@ export namespace Prisma {
     delete?: AnswerWhereInput | boolean
     connect?: AnswerWhereUniqueInput
     update?: XOR<XOR<AnswerUpdateToOneWithWhereWithoutCommentsInput, AnswerUpdateWithoutCommentsInput>, AnswerUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutCommentsNestedInput = {
+    create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
+    upsert?: UserUpsertWithoutCommentsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommentsInput, UserUpdateWithoutCommentsInput>, UserUncheckedUpdateWithoutCommentsInput>
   }
 
   export type NotificationCreateavatarsInput = {
@@ -11462,6 +11462,66 @@ export namespace Prisma {
     _max?: NestedEnumReportTypeFilter<$PrismaModel>
   }
 
+  export type AnswerCreateWithoutUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    text: string
+    isBestAnswer?: boolean | null
+    likes?: number | null
+    question?: QuestionCreateNestedOneWithoutAnswersInput
+    comments?: CommentCreateNestedManyWithoutAnswerInput
+    likedBy?: UserCreateNestedManyWithoutLikedAnswersInput
+  }
+
+  export type AnswerUncheckedCreateWithoutUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    text: string
+    isBestAnswer?: boolean | null
+    questionId?: string | null
+    likes?: number | null
+    comments?: CommentUncheckedCreateNestedManyWithoutAnswerInput
+    likedBy?: UserUncheckedCreateNestedManyWithoutLikedAnswersInput
+  }
+
+  export type AnswerCreateOrConnectWithoutUserInput = {
+    where: AnswerWhereUniqueInput
+    create: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput>
+  }
+
+  export type AnswerCreateManyUserInputEnvelope = {
+    data: AnswerCreateManyUserInput | AnswerCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CommentCreateWithoutUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    text: string
+    answer?: AnswerCreateNestedOneWithoutCommentsInput
+  }
+
+  export type CommentUncheckedCreateWithoutUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    text: string
+    answerId?: string | null
+  }
+
+  export type CommentCreateOrConnectWithoutUserInput = {
+    where: CommentWhereUniqueInput
+    create: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput>
+  }
+
+  export type CommentCreateManyUserInputEnvelope = {
+    data: CommentCreateManyUserInput | CommentCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type QuestionCreateWithoutUserInput = {
     id?: string
     createdAt?: Date | string
@@ -11472,9 +11532,9 @@ export namespace Prisma {
     subcategory: string
     likes?: number | null
     isLeader?: boolean | null
-    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
     additionals?: AdditionalCreateNestedManyWithoutQuestionInput
     answers?: AnswerCreateNestedManyWithoutQuestionInput
+    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionUncheckedCreateWithoutUserInput = {
@@ -11487,9 +11547,9 @@ export namespace Prisma {
     subcategory: string
     likes?: number | null
     isLeader?: boolean | null
-    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
     additionals?: AdditionalUncheckedCreateNestedManyWithoutQuestionInput
     answers?: AnswerUncheckedCreateNestedManyWithoutQuestionInput
+    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionCreateOrConnectWithoutUserInput = {
@@ -11500,6 +11560,35 @@ export namespace Prisma {
   export type QuestionCreateManyUserInputEnvelope = {
     data: QuestionCreateManyUserInput | QuestionCreateManyUserInput[]
     skipDuplicates?: boolean
+  }
+
+  export type AnswerCreateWithoutLikedByInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    text: string
+    isBestAnswer?: boolean | null
+    likes?: number | null
+    question?: QuestionCreateNestedOneWithoutAnswersInput
+    user: UserCreateNestedOneWithoutAnswersInput
+    comments?: CommentCreateNestedManyWithoutAnswerInput
+  }
+
+  export type AnswerUncheckedCreateWithoutLikedByInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    text: string
+    isBestAnswer?: boolean | null
+    questionId?: string | null
+    userId: string
+    likes?: number | null
+    comments?: CommentUncheckedCreateNestedManyWithoutAnswerInput
+  }
+
+  export type AnswerCreateOrConnectWithoutLikedByInput = {
+    where: AnswerWhereUniqueInput
+    create: XOR<AnswerCreateWithoutLikedByInput, AnswerUncheckedCreateWithoutLikedByInput>
   }
 
   export type QuestionCreateWithoutLikedByInput = {
@@ -11537,93 +11626,62 @@ export namespace Prisma {
     create: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput>
   }
 
-  export type AnswerCreateWithoutUserInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    text: string
-    isBestAnswer?: boolean | null
-    likes?: number | null
-    question?: QuestionCreateNestedOneWithoutAnswersInput
-    likedBy?: UserCreateNestedManyWithoutLikedAnswersInput
-    comments?: CommentCreateNestedManyWithoutAnswerInput
-  }
-
-  export type AnswerUncheckedCreateWithoutUserInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    text: string
-    isBestAnswer?: boolean | null
-    questionId?: string | null
-    likes?: number | null
-    likedBy?: UserUncheckedCreateNestedManyWithoutLikedAnswersInput
-    comments?: CommentUncheckedCreateNestedManyWithoutAnswerInput
-  }
-
-  export type AnswerCreateOrConnectWithoutUserInput = {
+  export type AnswerUpsertWithWhereUniqueWithoutUserInput = {
     where: AnswerWhereUniqueInput
+    update: XOR<AnswerUpdateWithoutUserInput, AnswerUncheckedUpdateWithoutUserInput>
     create: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput>
   }
 
-  export type AnswerCreateManyUserInputEnvelope = {
-    data: AnswerCreateManyUserInput | AnswerCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type AnswerCreateWithoutLikedByInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    text: string
-    isBestAnswer?: boolean | null
-    likes?: number | null
-    question?: QuestionCreateNestedOneWithoutAnswersInput
-    user: UserCreateNestedOneWithoutAnswersInput
-    comments?: CommentCreateNestedManyWithoutAnswerInput
-  }
-
-  export type AnswerUncheckedCreateWithoutLikedByInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    text: string
-    isBestAnswer?: boolean | null
-    questionId?: string | null
-    userId: string
-    likes?: number | null
-    comments?: CommentUncheckedCreateNestedManyWithoutAnswerInput
-  }
-
-  export type AnswerCreateOrConnectWithoutLikedByInput = {
+  export type AnswerUpdateWithWhereUniqueWithoutUserInput = {
     where: AnswerWhereUniqueInput
-    create: XOR<AnswerCreateWithoutLikedByInput, AnswerUncheckedCreateWithoutLikedByInput>
+    data: XOR<AnswerUpdateWithoutUserInput, AnswerUncheckedUpdateWithoutUserInput>
   }
 
-  export type CommentCreateWithoutUserInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    text: string
-    answer?: AnswerCreateNestedOneWithoutCommentsInput
+  export type AnswerUpdateManyWithWhereWithoutUserInput = {
+    where: AnswerScalarWhereInput
+    data: XOR<AnswerUpdateManyMutationInput, AnswerUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type CommentUncheckedCreateWithoutUserInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    text: string
-    answerId?: string | null
+  export type AnswerScalarWhereInput = {
+    AND?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
+    OR?: AnswerScalarWhereInput[]
+    NOT?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
+    id?: StringFilter<"Answer"> | string
+    createdAt?: DateTimeFilter<"Answer"> | Date | string
+    updatedAt?: DateTimeFilter<"Answer"> | Date | string
+    text?: StringFilter<"Answer"> | string
+    isBestAnswer?: BoolNullableFilter<"Answer"> | boolean | null
+    questionId?: StringNullableFilter<"Answer"> | string | null
+    userId?: StringFilter<"Answer"> | string
+    likes?: IntNullableFilter<"Answer"> | number | null
   }
 
-  export type CommentCreateOrConnectWithoutUserInput = {
+  export type CommentUpsertWithWhereUniqueWithoutUserInput = {
     where: CommentWhereUniqueInput
+    update: XOR<CommentUpdateWithoutUserInput, CommentUncheckedUpdateWithoutUserInput>
     create: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput>
   }
 
-  export type CommentCreateManyUserInputEnvelope = {
-    data: CommentCreateManyUserInput | CommentCreateManyUserInput[]
-    skipDuplicates?: boolean
+  export type CommentUpdateWithWhereUniqueWithoutUserInput = {
+    where: CommentWhereUniqueInput
+    data: XOR<CommentUpdateWithoutUserInput, CommentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CommentUpdateManyWithWhereWithoutUserInput = {
+    where: CommentScalarWhereInput
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type CommentScalarWhereInput = {
+    AND?: CommentScalarWhereInput | CommentScalarWhereInput[]
+    OR?: CommentScalarWhereInput[]
+    NOT?: CommentScalarWhereInput | CommentScalarWhereInput[]
+    id?: StringFilter<"Comment"> | string
+    createdAt?: DateTimeFilter<"Comment"> | Date | string
+    updatedAt?: DateTimeFilter<"Comment"> | Date | string
+    text?: StringFilter<"Comment"> | string
+    userId?: StringFilter<"Comment"> | string
+    answerId?: StringNullableFilter<"Comment"> | string | null
   }
 
   export type QuestionUpsertWithWhereUniqueWithoutUserInput = {
@@ -11658,52 +11716,6 @@ export namespace Prisma {
     userId?: StringNullableFilter<"Question"> | string | null
   }
 
-  export type QuestionUpsertWithWhereUniqueWithoutLikedByInput = {
-    where: QuestionWhereUniqueInput
-    update: XOR<QuestionUpdateWithoutLikedByInput, QuestionUncheckedUpdateWithoutLikedByInput>
-    create: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput>
-  }
-
-  export type QuestionUpdateWithWhereUniqueWithoutLikedByInput = {
-    where: QuestionWhereUniqueInput
-    data: XOR<QuestionUpdateWithoutLikedByInput, QuestionUncheckedUpdateWithoutLikedByInput>
-  }
-
-  export type QuestionUpdateManyWithWhereWithoutLikedByInput = {
-    where: QuestionScalarWhereInput
-    data: XOR<QuestionUpdateManyMutationInput, QuestionUncheckedUpdateManyWithoutLikedByInput>
-  }
-
-  export type AnswerUpsertWithWhereUniqueWithoutUserInput = {
-    where: AnswerWhereUniqueInput
-    update: XOR<AnswerUpdateWithoutUserInput, AnswerUncheckedUpdateWithoutUserInput>
-    create: XOR<AnswerCreateWithoutUserInput, AnswerUncheckedCreateWithoutUserInput>
-  }
-
-  export type AnswerUpdateWithWhereUniqueWithoutUserInput = {
-    where: AnswerWhereUniqueInput
-    data: XOR<AnswerUpdateWithoutUserInput, AnswerUncheckedUpdateWithoutUserInput>
-  }
-
-  export type AnswerUpdateManyWithWhereWithoutUserInput = {
-    where: AnswerScalarWhereInput
-    data: XOR<AnswerUpdateManyMutationInput, AnswerUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type AnswerScalarWhereInput = {
-    AND?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
-    OR?: AnswerScalarWhereInput[]
-    NOT?: AnswerScalarWhereInput | AnswerScalarWhereInput[]
-    id?: StringFilter<"Answer"> | string
-    createdAt?: DateTimeFilter<"Answer"> | Date | string
-    updatedAt?: DateTimeFilter<"Answer"> | Date | string
-    text?: StringFilter<"Answer"> | string
-    isBestAnswer?: BoolNullableFilter<"Answer"> | boolean | null
-    questionId?: StringNullableFilter<"Answer"> | string | null
-    userId?: StringFilter<"Answer"> | string
-    likes?: IntNullableFilter<"Answer"> | number | null
-  }
-
   export type AnswerUpsertWithWhereUniqueWithoutLikedByInput = {
     where: AnswerWhereUniqueInput
     update: XOR<AnswerUpdateWithoutLikedByInput, AnswerUncheckedUpdateWithoutLikedByInput>
@@ -11720,85 +11732,20 @@ export namespace Prisma {
     data: XOR<AnswerUpdateManyMutationInput, AnswerUncheckedUpdateManyWithoutLikedByInput>
   }
 
-  export type CommentUpsertWithWhereUniqueWithoutUserInput = {
-    where: CommentWhereUniqueInput
-    update: XOR<CommentUpdateWithoutUserInput, CommentUncheckedUpdateWithoutUserInput>
-    create: XOR<CommentCreateWithoutUserInput, CommentUncheckedCreateWithoutUserInput>
+  export type QuestionUpsertWithWhereUniqueWithoutLikedByInput = {
+    where: QuestionWhereUniqueInput
+    update: XOR<QuestionUpdateWithoutLikedByInput, QuestionUncheckedUpdateWithoutLikedByInput>
+    create: XOR<QuestionCreateWithoutLikedByInput, QuestionUncheckedCreateWithoutLikedByInput>
   }
 
-  export type CommentUpdateWithWhereUniqueWithoutUserInput = {
-    where: CommentWhereUniqueInput
-    data: XOR<CommentUpdateWithoutUserInput, CommentUncheckedUpdateWithoutUserInput>
+  export type QuestionUpdateWithWhereUniqueWithoutLikedByInput = {
+    where: QuestionWhereUniqueInput
+    data: XOR<QuestionUpdateWithoutLikedByInput, QuestionUncheckedUpdateWithoutLikedByInput>
   }
 
-  export type CommentUpdateManyWithWhereWithoutUserInput = {
-    where: CommentScalarWhereInput
-    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type CommentScalarWhereInput = {
-    AND?: CommentScalarWhereInput | CommentScalarWhereInput[]
-    OR?: CommentScalarWhereInput[]
-    NOT?: CommentScalarWhereInput | CommentScalarWhereInput[]
-    id?: StringFilter<"Comment"> | string
-    createdAt?: DateTimeFilter<"Comment"> | Date | string
-    updatedAt?: DateTimeFilter<"Comment"> | Date | string
-    text?: StringFilter<"Comment"> | string
-    userId?: StringFilter<"Comment"> | string
-    answerId?: StringNullableFilter<"Comment"> | string | null
-  }
-
-  export type UserCreateWithoutLikedQuestionsInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    name: string
-    lastName: string
-    email: string
-    linkedEmail: string
-    password: string
-    avatar?: string | null
-    phone: string
-    birthdate: string
-    gender: string
-    points?: number | null
-    level?: string | null
-    description?: string | null
-    isAdmin?: boolean | null
-    isVip?: boolean | null
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    answers?: AnswerCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutLikedQuestionsInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    name: string
-    lastName: string
-    email: string
-    linkedEmail: string
-    password: string
-    avatar?: string | null
-    phone: string
-    birthdate: string
-    gender: string
-    points?: number | null
-    level?: string | null
-    description?: string | null
-    isAdmin?: boolean | null
-    isVip?: boolean | null
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutLikedQuestionsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput>
+  export type QuestionUpdateManyWithWhereWithoutLikedByInput = {
+    where: QuestionScalarWhereInput
+    data: XOR<QuestionUpdateManyMutationInput, QuestionUncheckedUpdateManyWithoutLikedByInput>
   }
 
   export type AdditionalCreateWithoutQuestionInput = {
@@ -11831,8 +11778,8 @@ export namespace Prisma {
     isBestAnswer?: boolean | null
     likes?: number | null
     user: UserCreateNestedOneWithoutAnswersInput
-    likedBy?: UserCreateNestedManyWithoutLikedAnswersInput
     comments?: CommentCreateNestedManyWithoutAnswerInput
+    likedBy?: UserCreateNestedManyWithoutLikedAnswersInput
   }
 
   export type AnswerUncheckedCreateWithoutQuestionInput = {
@@ -11843,8 +11790,8 @@ export namespace Prisma {
     isBestAnswer?: boolean | null
     userId: string
     likes?: number | null
-    likedBy?: UserUncheckedCreateNestedManyWithoutLikedAnswersInput
     comments?: CommentUncheckedCreateNestedManyWithoutAnswerInput
+    likedBy?: UserUncheckedCreateNestedManyWithoutLikedAnswersInput
   }
 
   export type AnswerCreateOrConnectWithoutQuestionInput = {
@@ -11875,10 +11822,10 @@ export namespace Prisma {
     description?: string | null
     isAdmin?: boolean | null
     isVip?: boolean | null
-    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
     answers?: AnswerCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
     comments?: CommentCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
   }
 
   export type UserUncheckedCreateWithoutQuestionsInput = {
@@ -11899,10 +11846,10 @@ export namespace Prisma {
     description?: string | null
     isAdmin?: boolean | null
     isVip?: boolean | null
-    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
     answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
   }
 
   export type UserCreateOrConnectWithoutQuestionsInput = {
@@ -11910,43 +11857,57 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutQuestionsInput, UserUncheckedCreateWithoutQuestionsInput>
   }
 
-  export type UserUpsertWithWhereUniqueWithoutLikedQuestionsInput = {
+  export type UserCreateWithoutLikedQuestionsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    lastName: string
+    email: string
+    linkedEmail: string
+    password: string
+    avatar?: string | null
+    phone: string
+    birthdate: string
+    gender: string
+    points?: number | null
+    level?: string | null
+    description?: string | null
+    isAdmin?: boolean | null
+    isVip?: boolean | null
+    answers?: AnswerCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutUserInput
+    questions?: QuestionCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
+  }
+
+  export type UserUncheckedCreateWithoutLikedQuestionsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    lastName: string
+    email: string
+    linkedEmail: string
+    password: string
+    avatar?: string | null
+    phone: string
+    birthdate: string
+    gender: string
+    points?: number | null
+    level?: string | null
+    description?: string | null
+    isAdmin?: boolean | null
+    isVip?: boolean | null
+    answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
+  }
+
+  export type UserCreateOrConnectWithoutLikedQuestionsInput = {
     where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutLikedQuestionsInput, UserUncheckedUpdateWithoutLikedQuestionsInput>
     create: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput>
-  }
-
-  export type UserUpdateWithWhereUniqueWithoutLikedQuestionsInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutLikedQuestionsInput, UserUncheckedUpdateWithoutLikedQuestionsInput>
-  }
-
-  export type UserUpdateManyWithWhereWithoutLikedQuestionsInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutLikedQuestionsInput>
-  }
-
-  export type UserScalarWhereInput = {
-    AND?: UserScalarWhereInput | UserScalarWhereInput[]
-    OR?: UserScalarWhereInput[]
-    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
-    id?: StringFilter<"User"> | string
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
-    name?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
-    linkedEmail?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    avatar?: StringNullableFilter<"User"> | string | null
-    phone?: StringFilter<"User"> | string
-    birthdate?: StringFilter<"User"> | string
-    gender?: StringFilter<"User"> | string
-    points?: IntNullableFilter<"User"> | number | null
-    level?: StringNullableFilter<"User"> | string | null
-    description?: StringNullableFilter<"User"> | string | null
-    isAdmin?: BoolNullableFilter<"User"> | boolean | null
-    isVip?: BoolNullableFilter<"User"> | boolean | null
   }
 
   export type AdditionalUpsertWithWhereUniqueWithoutQuestionInput = {
@@ -12020,10 +11981,10 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
     isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
     answers?: AnswerUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
   }
 
   export type UserUncheckedUpdateWithoutQuestionsInput = {
@@ -12044,10 +12005,49 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
     isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
     answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
+  }
+
+  export type UserUpsertWithWhereUniqueWithoutLikedQuestionsInput = {
+    where: UserWhereUniqueInput
+    update: XOR<UserUpdateWithoutLikedQuestionsInput, UserUncheckedUpdateWithoutLikedQuestionsInput>
+    create: XOR<UserCreateWithoutLikedQuestionsInput, UserUncheckedCreateWithoutLikedQuestionsInput>
+  }
+
+  export type UserUpdateWithWhereUniqueWithoutLikedQuestionsInput = {
+    where: UserWhereUniqueInput
+    data: XOR<UserUpdateWithoutLikedQuestionsInput, UserUncheckedUpdateWithoutLikedQuestionsInput>
+  }
+
+  export type UserUpdateManyWithWhereWithoutLikedQuestionsInput = {
+    where: UserScalarWhereInput
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutLikedQuestionsInput>
+  }
+
+  export type UserScalarWhereInput = {
+    AND?: UserScalarWhereInput | UserScalarWhereInput[]
+    OR?: UserScalarWhereInput[]
+    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
+    id?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    name?: StringFilter<"User"> | string
+    lastName?: StringFilter<"User"> | string
+    email?: StringFilter<"User"> | string
+    linkedEmail?: StringFilter<"User"> | string
+    password?: StringFilter<"User"> | string
+    avatar?: StringNullableFilter<"User"> | string | null
+    phone?: StringFilter<"User"> | string
+    birthdate?: StringFilter<"User"> | string
+    gender?: StringFilter<"User"> | string
+    points?: IntNullableFilter<"User"> | number | null
+    level?: StringNullableFilter<"User"> | string | null
+    description?: StringNullableFilter<"User"> | string | null
+    isAdmin?: BoolNullableFilter<"User"> | boolean | null
+    isVip?: BoolNullableFilter<"User"> | boolean | null
   }
 
   export type QuestionCreateWithoutAdditionalsInput = {
@@ -12060,9 +12060,9 @@ export namespace Prisma {
     subcategory: string
     likes?: number | null
     isLeader?: boolean | null
-    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
     answers?: AnswerCreateNestedManyWithoutQuestionInput
     user?: UserCreateNestedOneWithoutQuestionsInput
+    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionUncheckedCreateWithoutAdditionalsInput = {
@@ -12076,8 +12076,8 @@ export namespace Prisma {
     likes?: number | null
     isLeader?: boolean | null
     userId?: string | null
-    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
     answers?: AnswerUncheckedCreateNestedManyWithoutQuestionInput
+    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionCreateOrConnectWithoutAdditionalsInput = {
@@ -12106,9 +12106,9 @@ export namespace Prisma {
     subcategory?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
     answers?: AnswerUpdateManyWithoutQuestionNestedInput
     user?: UserUpdateOneWithoutQuestionsNestedInput
+    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateWithoutAdditionalsInput = {
@@ -12122,8 +12122,8 @@ export namespace Prisma {
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
     answers?: AnswerUncheckedUpdateManyWithoutQuestionNestedInput
+    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type QuestionCreateWithoutAnswersInput = {
@@ -12136,9 +12136,9 @@ export namespace Prisma {
     subcategory: string
     likes?: number | null
     isLeader?: boolean | null
-    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
     additionals?: AdditionalCreateNestedManyWithoutQuestionInput
     user?: UserCreateNestedOneWithoutQuestionsInput
+    likedBy?: UserCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionUncheckedCreateWithoutAnswersInput = {
@@ -12152,8 +12152,8 @@ export namespace Prisma {
     likes?: number | null
     isLeader?: boolean | null
     userId?: string | null
-    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
     additionals?: AdditionalUncheckedCreateNestedManyWithoutQuestionInput
+    likedBy?: UserUncheckedCreateNestedManyWithoutLikedQuestionsInput
   }
 
   export type QuestionCreateOrConnectWithoutAnswersInput = {
@@ -12179,10 +12179,10 @@ export namespace Prisma {
     description?: string | null
     isAdmin?: boolean | null
     isVip?: boolean | null
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
-    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
     comments?: CommentCreateNestedManyWithoutUserInput
+    questions?: QuestionCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
   }
 
   export type UserUncheckedCreateWithoutAnswersInput = {
@@ -12203,68 +12203,15 @@ export namespace Prisma {
     description?: string | null
     isAdmin?: boolean | null
     isVip?: boolean | null
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
-    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
   }
 
   export type UserCreateOrConnectWithoutAnswersInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutAnswersInput, UserUncheckedCreateWithoutAnswersInput>
-  }
-
-  export type UserCreateWithoutLikedAnswersInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    name: string
-    lastName: string
-    email: string
-    linkedEmail: string
-    password: string
-    avatar?: string | null
-    phone: string
-    birthdate: string
-    gender: string
-    points?: number | null
-    level?: string | null
-    description?: string | null
-    isAdmin?: boolean | null
-    isVip?: boolean | null
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
-    answers?: AnswerCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutLikedAnswersInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    name: string
-    lastName: string
-    email: string
-    linkedEmail: string
-    password: string
-    avatar?: string | null
-    phone: string
-    birthdate: string
-    gender: string
-    points?: number | null
-    level?: string | null
-    description?: string | null
-    isAdmin?: boolean | null
-    isVip?: boolean | null
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
-    answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutLikedAnswersInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput>
   }
 
   export type CommentCreateWithoutAnswerInput = {
@@ -12293,6 +12240,59 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type UserCreateWithoutLikedAnswersInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    lastName: string
+    email: string
+    linkedEmail: string
+    password: string
+    avatar?: string | null
+    phone: string
+    birthdate: string
+    gender: string
+    points?: number | null
+    level?: string | null
+    description?: string | null
+    isAdmin?: boolean | null
+    isVip?: boolean | null
+    answers?: AnswerCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutUserInput
+    questions?: QuestionCreateNestedManyWithoutUserInput
+    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
+  }
+
+  export type UserUncheckedCreateWithoutLikedAnswersInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    lastName: string
+    email: string
+    linkedEmail: string
+    password: string
+    avatar?: string | null
+    phone: string
+    birthdate: string
+    gender: string
+    points?: number | null
+    level?: string | null
+    description?: string | null
+    isAdmin?: boolean | null
+    isVip?: boolean | null
+    answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
+    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
+  }
+
+  export type UserCreateOrConnectWithoutLikedAnswersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput>
+  }
+
   export type QuestionUpsertWithoutAnswersInput = {
     update: XOR<QuestionUpdateWithoutAnswersInput, QuestionUncheckedUpdateWithoutAnswersInput>
     create: XOR<QuestionCreateWithoutAnswersInput, QuestionUncheckedCreateWithoutAnswersInput>
@@ -12314,9 +12314,9 @@ export namespace Prisma {
     subcategory?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
     additionals?: AdditionalUpdateManyWithoutQuestionNestedInput
     user?: UserUpdateOneWithoutQuestionsNestedInput
+    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateWithoutAnswersInput = {
@@ -12330,8 +12330,8 @@ export namespace Prisma {
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
     additionals?: AdditionalUncheckedUpdateManyWithoutQuestionNestedInput
+    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type UserUpsertWithoutAnswersInput = {
@@ -12363,10 +12363,10 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
     isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
-    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
+    questions?: QuestionUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAnswersInput = {
@@ -12387,26 +12387,10 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
     isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
-    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUpsertWithWhereUniqueWithoutLikedAnswersInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutLikedAnswersInput, UserUncheckedUpdateWithoutLikedAnswersInput>
-    create: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput>
-  }
-
-  export type UserUpdateWithWhereUniqueWithoutLikedAnswersInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutLikedAnswersInput, UserUncheckedUpdateWithoutLikedAnswersInput>
-  }
-
-  export type UserUpdateManyWithWhereWithoutLikedAnswersInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutLikedAnswersInput>
+    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
   }
 
   export type CommentUpsertWithWhereUniqueWithoutAnswerInput = {
@@ -12425,57 +12409,20 @@ export namespace Prisma {
     data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutAnswerInput>
   }
 
-  export type UserCreateWithoutCommentsInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    name: string
-    lastName: string
-    email: string
-    linkedEmail: string
-    password: string
-    avatar?: string | null
-    phone: string
-    birthdate: string
-    gender: string
-    points?: number | null
-    level?: string | null
-    description?: string | null
-    isAdmin?: boolean | null
-    isVip?: boolean | null
-    questions?: QuestionCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
-    answers?: AnswerCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
-  }
-
-  export type UserUncheckedCreateWithoutCommentsInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    name: string
-    lastName: string
-    email: string
-    linkedEmail: string
-    password: string
-    avatar?: string | null
-    phone: string
-    birthdate: string
-    gender: string
-    points?: number | null
-    level?: string | null
-    description?: string | null
-    isAdmin?: boolean | null
-    isVip?: boolean | null
-    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
-    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
-    answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
-    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
-  }
-
-  export type UserCreateOrConnectWithoutCommentsInput = {
+  export type UserUpsertWithWhereUniqueWithoutLikedAnswersInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
+    update: XOR<UserUpdateWithoutLikedAnswersInput, UserUncheckedUpdateWithoutLikedAnswersInput>
+    create: XOR<UserCreateWithoutLikedAnswersInput, UserUncheckedCreateWithoutLikedAnswersInput>
+  }
+
+  export type UserUpdateWithWhereUniqueWithoutLikedAnswersInput = {
+    where: UserWhereUniqueInput
+    data: XOR<UserUpdateWithoutLikedAnswersInput, UserUncheckedUpdateWithoutLikedAnswersInput>
+  }
+
+  export type UserUpdateManyWithWhereWithoutLikedAnswersInput = {
+    where: UserScalarWhereInput
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutLikedAnswersInput>
   }
 
   export type AnswerCreateWithoutCommentsInput = {
@@ -12507,63 +12454,57 @@ export namespace Prisma {
     create: XOR<AnswerCreateWithoutCommentsInput, AnswerUncheckedCreateWithoutCommentsInput>
   }
 
-  export type UserUpsertWithoutCommentsInput = {
-    update: XOR<UserUpdateWithoutCommentsInput, UserUncheckedUpdateWithoutCommentsInput>
+  export type UserCreateWithoutCommentsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    lastName: string
+    email: string
+    linkedEmail: string
+    password: string
+    avatar?: string | null
+    phone: string
+    birthdate: string
+    gender: string
+    points?: number | null
+    level?: string | null
+    description?: string | null
+    isAdmin?: boolean | null
+    isVip?: boolean | null
+    answers?: AnswerCreateNestedManyWithoutUserInput
+    questions?: QuestionCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionCreateNestedManyWithoutLikedByInput
+  }
+
+  export type UserUncheckedCreateWithoutCommentsInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    name: string
+    lastName: string
+    email: string
+    linkedEmail: string
+    password: string
+    avatar?: string | null
+    phone: string
+    birthdate: string
+    gender: string
+    points?: number | null
+    level?: string | null
+    description?: string | null
+    isAdmin?: boolean | null
+    isVip?: boolean | null
+    answers?: AnswerUncheckedCreateNestedManyWithoutUserInput
+    questions?: QuestionUncheckedCreateNestedManyWithoutUserInput
+    likedAnswers?: AnswerUncheckedCreateNestedManyWithoutLikedByInput
+    likedQuestions?: QuestionUncheckedCreateNestedManyWithoutLikedByInput
+  }
+
+  export type UserCreateOrConnectWithoutCommentsInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutCommentsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutCommentsInput, UserUncheckedUpdateWithoutCommentsInput>
-  }
-
-  export type UserUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
-    answers?: AnswerUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
-    answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
   }
 
   export type AnswerUpsertWithoutCommentsInput = {
@@ -12601,16 +12542,63 @@ export namespace Prisma {
     likedBy?: UserUncheckedUpdateManyWithoutLikedAnswersNestedInput
   }
 
-  export type QuestionCreateManyUserInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    themeText: string
-    text?: string | null
-    category: string
-    subcategory: string
-    likes?: number | null
-    isLeader?: boolean | null
+  export type UserUpsertWithoutCommentsInput = {
+    update: XOR<UserUpdateWithoutCommentsInput, UserUncheckedUpdateWithoutCommentsInput>
+    create: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCommentsInput, UserUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type UserUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    answers?: AnswerUpdateManyWithoutUserNestedInput
+    questions?: QuestionUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
+    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
+    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
   }
 
   export type AnswerCreateManyUserInput = {
@@ -12631,6 +12619,76 @@ export namespace Prisma {
     answerId?: string | null
   }
 
+  export type QuestionCreateManyUserInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    themeText: string
+    text?: string | null
+    category: string
+    subcategory: string
+    likes?: number | null
+    isLeader?: boolean | null
+  }
+
+  export type AnswerUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    likes?: NullableIntFieldUpdateOperationsInput | number | null
+    question?: QuestionUpdateOneWithoutAnswersNestedInput
+    comments?: CommentUpdateManyWithoutAnswerNestedInput
+    likedBy?: UserUpdateManyWithoutLikedAnswersNestedInput
+  }
+
+  export type AnswerUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    questionId?: NullableStringFieldUpdateOperationsInput | string | null
+    likes?: NullableIntFieldUpdateOperationsInput | number | null
+    comments?: CommentUncheckedUpdateManyWithoutAnswerNestedInput
+    likedBy?: UserUncheckedUpdateManyWithoutLikedAnswersNestedInput
+  }
+
+  export type AnswerUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    questionId?: NullableStringFieldUpdateOperationsInput | string | null
+    likes?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CommentUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    answer?: AnswerUpdateOneWithoutCommentsNestedInput
+  }
+
+  export type CommentUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    answerId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CommentUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    answerId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type QuestionUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12641,9 +12699,9 @@ export namespace Prisma {
     subcategory?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
     additionals?: AdditionalUpdateManyWithoutQuestionNestedInput
     answers?: AnswerUpdateManyWithoutQuestionNestedInput
+    likedBy?: UserUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateWithoutUserInput = {
@@ -12656,9 +12714,9 @@ export namespace Prisma {
     subcategory?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
     additionals?: AdditionalUncheckedUpdateManyWithoutQuestionNestedInput
     answers?: AnswerUncheckedUpdateManyWithoutQuestionNestedInput
+    likedBy?: UserUncheckedUpdateManyWithoutLikedQuestionsNestedInput
   }
 
   export type QuestionUncheckedUpdateManyWithoutUserInput = {
@@ -12671,6 +12729,41 @@ export namespace Prisma {
     subcategory?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     isLeader?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type AnswerUpdateWithoutLikedByInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    likes?: NullableIntFieldUpdateOperationsInput | number | null
+    question?: QuestionUpdateOneWithoutAnswersNestedInput
+    user?: UserUpdateOneRequiredWithoutAnswersNestedInput
+    comments?: CommentUpdateManyWithoutAnswerNestedInput
+  }
+
+  export type AnswerUncheckedUpdateWithoutLikedByInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    questionId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    likes?: NullableIntFieldUpdateOperationsInput | number | null
+    comments?: CommentUncheckedUpdateManyWithoutAnswerNestedInput
+  }
+
+  export type AnswerUncheckedUpdateManyWithoutLikedByInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    text?: StringFieldUpdateOperationsInput | string
+    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    questionId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    likes?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type QuestionUpdateWithoutLikedByInput = {
@@ -12716,99 +12809,6 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type AnswerUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likes?: NullableIntFieldUpdateOperationsInput | number | null
-    question?: QuestionUpdateOneWithoutAnswersNestedInput
-    likedBy?: UserUpdateManyWithoutLikedAnswersNestedInput
-    comments?: CommentUpdateManyWithoutAnswerNestedInput
-  }
-
-  export type AnswerUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questionId?: NullableStringFieldUpdateOperationsInput | string | null
-    likes?: NullableIntFieldUpdateOperationsInput | number | null
-    likedBy?: UserUncheckedUpdateManyWithoutLikedAnswersNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutAnswerNestedInput
-  }
-
-  export type AnswerUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questionId?: NullableStringFieldUpdateOperationsInput | string | null
-    likes?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type AnswerUpdateWithoutLikedByInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    likes?: NullableIntFieldUpdateOperationsInput | number | null
-    question?: QuestionUpdateOneWithoutAnswersNestedInput
-    user?: UserUpdateOneRequiredWithoutAnswersNestedInput
-    comments?: CommentUpdateManyWithoutAnswerNestedInput
-  }
-
-  export type AnswerUncheckedUpdateWithoutLikedByInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questionId?: NullableStringFieldUpdateOperationsInput | string | null
-    userId?: StringFieldUpdateOperationsInput | string
-    likes?: NullableIntFieldUpdateOperationsInput | number | null
-    comments?: CommentUncheckedUpdateManyWithoutAnswerNestedInput
-  }
-
-  export type AnswerUncheckedUpdateManyWithoutLikedByInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questionId?: NullableStringFieldUpdateOperationsInput | string | null
-    userId?: StringFieldUpdateOperationsInput | string
-    likes?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type CommentUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    answer?: AnswerUpdateOneWithoutCommentsNestedInput
-  }
-
-  export type CommentUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    answerId?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type CommentUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    text?: StringFieldUpdateOperationsInput | string
-    answerId?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type AdditionalCreateManyQuestionInput = {
     id?: string
     createdAt?: Date | string
@@ -12823,74 +12823,6 @@ export namespace Prisma {
     isBestAnswer?: boolean | null
     userId: string
     likes?: number | null
-  }
-
-  export type UserUpdateWithoutLikedQuestionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    answers?: AnswerUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutLikedQuestionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
-    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateManyWithoutLikedQuestionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type AdditionalUpdateWithoutQuestionInput = {
@@ -12919,8 +12851,8 @@ export namespace Prisma {
     isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
     likes?: NullableIntFieldUpdateOperationsInput | number | null
     user?: UserUpdateOneRequiredWithoutAnswersNestedInput
-    likedBy?: UserUpdateManyWithoutLikedAnswersNestedInput
     comments?: CommentUpdateManyWithoutAnswerNestedInput
+    likedBy?: UserUpdateManyWithoutLikedAnswersNestedInput
   }
 
   export type AnswerUncheckedUpdateWithoutQuestionInput = {
@@ -12931,8 +12863,8 @@ export namespace Prisma {
     isBestAnswer?: NullableBoolFieldUpdateOperationsInput | boolean | null
     userId?: StringFieldUpdateOperationsInput | string
     likes?: NullableIntFieldUpdateOperationsInput | number | null
-    likedBy?: UserUncheckedUpdateManyWithoutLikedAnswersNestedInput
     comments?: CommentUncheckedUpdateManyWithoutAnswerNestedInput
+    likedBy?: UserUncheckedUpdateManyWithoutLikedAnswersNestedInput
   }
 
   export type AnswerUncheckedUpdateManyWithoutQuestionInput = {
@@ -12945,80 +12877,80 @@ export namespace Prisma {
     likes?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type UserUpdateWithoutLikedQuestionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    answers?: AnswerUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutUserNestedInput
+    questions?: QuestionUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUpdateManyWithoutLikedByNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLikedQuestionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
+    likedAnswers?: AnswerUncheckedUpdateManyWithoutLikedByNestedInput
+  }
+
+  export type UserUncheckedUpdateManyWithoutLikedQuestionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
   export type CommentCreateManyAnswerInput = {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     text: string
     userId: string
-  }
-
-  export type UserUpdateWithoutLikedAnswersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
-    answers?: AnswerUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutLikedAnswersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
-    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
-    answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateManyWithoutLikedAnswersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    name?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    linkedEmail?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: StringFieldUpdateOperationsInput | string
-    birthdate?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    points?: NullableIntFieldUpdateOperationsInput | number | null
-    level?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type CommentUpdateWithoutAnswerInput = {
@@ -13043,6 +12975,74 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     text?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserUpdateWithoutLikedAnswersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    answers?: AnswerUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutUserNestedInput
+    questions?: QuestionUpdateManyWithoutUserNestedInput
+    likedQuestions?: QuestionUpdateManyWithoutLikedByNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLikedAnswersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    answers?: AnswerUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    questions?: QuestionUncheckedUpdateManyWithoutUserNestedInput
+    likedQuestions?: QuestionUncheckedUpdateManyWithoutLikedByNestedInput
+  }
+
+  export type UserUncheckedUpdateManyWithoutLikedAnswersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    linkedEmail?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    birthdate?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    points?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isVip?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
 
