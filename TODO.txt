@@ -1,0 +1,15 @@
+Запомнить, sessionstoraeg, cookies НЕ НАДО 
+сделать капчу НЕ НАДО 
+ОБЯЗАТЕЛЬНО МОЖЕТ ПОТОМ КАК НИБУДЬ НА РУССКОМ КАТЕГОРИИ НАЗВАНИЕ...  ЛАДНО НЕ НАДО 
+СДЕЛАТЬ ЕЩЕ ПОТОМ ЧТОБЬЛ ИЗОБРАЖЕНИЯ ЛИСТАТЬ МОЖНО БЫЛО  ЛАДНО НЕ НАДО 
+
+
+nest g resource test --no-spec
+// res.set('Content-Range', `tests ${((pageNumber - 1) * itemsPerPage)}-${(pageNumber * itemsPerPage) - 1}/${total}`);
+это придется везде 
+
+можно еще в docker nest js сделать 
+
+выложить на сервер но сначала в docker сделать щас 
+
+попробовать залить на github или vercel

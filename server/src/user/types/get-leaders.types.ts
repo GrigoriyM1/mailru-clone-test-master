@@ -1,0 +1,1 @@
+export type GetLeadersType = 'activity' | 'answersLength'

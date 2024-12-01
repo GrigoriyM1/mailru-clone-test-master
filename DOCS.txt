@@ -1,0 +1,23 @@
+https://docs.stripe.com/testing
+4242 4242 4242 4242            12 / 34     567       12345
+
+stripe listen --forward-to localhost:4200/api/webhook
+stripe trigger customer.subscription.deleted
+
+
+
+https://dashboard.stripe.com/test/payments
+
+admin - http://localhost:3000/admins
+
+нашел   https://www.youtube.com/watch?v=dDeWWQWMM-Y
+
+
+docker-compose build
+docker-compose up
+
+mailru-clone
+
+search docker with prisma 
+
+ddddddd
