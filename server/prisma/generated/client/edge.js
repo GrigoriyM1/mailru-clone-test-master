@@ -218,7 +218,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Sites\\PROJECTS-NEXTJS\\mailru-clone\\server\\prisma\\generated\\client",
+      "value": "D:\\mailru-clone-master\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -232,7 +232,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\Sites\\PROJECTS-NEXTJS\\mailru-clone\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\mailru-clone-master\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

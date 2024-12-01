@@ -21,3 +21,15 @@ mailru-clone
 search docker with prisma 
 
 ddddddd
+
+ngrok http 
+ngrok http 3000
+
+Or enter the code below into the authenticator app
+Q2CMICQPV27QB2GMDLS2OXHCMFWLD4GV
+
+тип такого postgresql://lingo_owner:4yqdgsVrJ5KC@ep-sweet-band-a55mieqc.us-east-2.aws.neon.tech/lingo?sslmode=require
+
+а там drizzle 
+
+postgresql://neondb_owner:0uMYlm7GSLck@ep-lingering-scene-a2wbmhx1.eu-central-1.aws.neon.tech/neondb?sslmode=require

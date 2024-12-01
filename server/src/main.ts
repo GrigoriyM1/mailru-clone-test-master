@@ -8,7 +8,7 @@ import { ResponseAddContentRangeToHeaderInterceptor } from './interceptors/respo
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule, {
-		rawBody: true // чтобы handleWebhook работал 
+		rawBody: true // чтобы handleWebhook работал
 	})
 
 	app.use(cookieParser())

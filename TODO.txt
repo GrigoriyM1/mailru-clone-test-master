@@ -13,3 +13,6 @@ nest g resource test --no-spec
 выложить на сервер но сначала в docker сделать щас 
 
 попробовать залить на github или vercel
+
+
+NGRok бд хостинг
