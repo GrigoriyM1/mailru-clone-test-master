@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body, Param, Delete, ValidationPipe, UsePipes, Query, Put, UnauthorizedException } from '@nestjs/common';
 import { AnswerService } from './answer.service';
-import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Auth } from '../auth/decorators/auth.decorator';
 import { AnswerDto } from './dto/answer.dto';
-import { CurrentUser } from 'src/auth/decorators/user.decorator';
+import { CurrentUser } from '../auth/decorators/user.decorator';
 import { CommentDto } from './dto/comment.dto';
 import { BestAnswerDto } from './dto/best-answer.dto';
 
