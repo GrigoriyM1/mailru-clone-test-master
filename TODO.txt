@@ -15,4 +15,4 @@ nest g resource test --no-spec
 попробовать залить на github или vercel
 
 
-NGRok бд хостинг
+NGRok бд хостинг  
