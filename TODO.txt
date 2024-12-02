@@ -20,3 +20,15 @@ NGRok бд хостинг
 main.ts путь к prisma папке 
 
 prisma vercel 
+
+ЗАДАТЬ ВОПРОС 
+Cannot find module 'prisma/generated/client'
+Require stack:
+- /var/task/server/src/prisma.service.js
+- /var/task/server/src/user/user.service.js
+- /var/task/server/src/auth/auth.service.js
+- /var/task/server/src/auth/auth.module.js
+- /var/task/server/src/app.module.js
+- /var/task/server/src/main.js
+Did you forget to add it to "dependencies" in `package.json`?
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
