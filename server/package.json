@@ -22,7 +22,8 @@
     "prisma:pull": "npx prisma db pull",
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
-    "prisma:migrate": "npx prisma migrate dev --name init"
+    "prisma:migrate": "npx prisma migrate dev --name init",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^2.0.2",
