@@ -11,12 +11,12 @@ async function bootstrap() {
 		rawBody: true // чтобы handleWebhook работал
 	})
 
+	// app.setGlobalPrefix('api')
 	app.use(cookieParser())
-	// app.setGlobalPrefix('api') 
 	app.enableCors({
-		origin: [process.env.CLIENT_URL], // http://localhost:3000
+		origin: [process.env.CLIENT_URL], 
 		credentials: true,
-		exposedHeaders: ['set-cookie']
+		exposedHeaders: ['set-cookie'],
 	})
 
 	app.use('/uploads', express.static(join(__dirname, '..', 'uploads')))

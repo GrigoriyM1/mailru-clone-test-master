@@ -35,3 +35,6 @@ Node.js process exited with exit status: 1. The logs above can help with debuggi
 
 npx prisma init --schema=src/prisma/schema.prisma   но сначала создать папку prisma в src 
 npx prisma migrate dev --name init
+
+
+вспомнил, https для куки 

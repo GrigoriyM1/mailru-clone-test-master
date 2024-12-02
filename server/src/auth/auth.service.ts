@@ -59,7 +59,7 @@ export class AuthService {
 
     res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
       httpOnly: true,
-      domain: 'localhost',
+      domain: 'mailru-clone-backend.vercel.app',
       expires: expiresIn,
       secure: true,
       sameSite: 'none'
@@ -93,8 +93,7 @@ export class AuthService {
 
   private async validateUser(dto: LoginDto) {
     const user = await this.userService.getByEmail(dto.email)
-    if (!user) throw new BadRequestException('Пользователь с таким e-mail не найден'); // TODO: функция которая ищет errors или message или просто строка
-    // TODO: сначала делать запрос с email потом с password
+    if (!user) throw new BadRequestException('Пользователь с таким e-mail не найден');
 
     if (dto.password) {
       const isValid = await verify(user.password, dto.password)
@@ -107,7 +106,7 @@ export class AuthService {
   removeRefreshTokenFromResponse(res: Response) {
     res.cookie(this.REFRESH_TOKEN_NAME, '', {
       httpOnly: true,
-      domain: 'localhost',
+      domain: 'mailru-clone-backend.vercel.app',
       expires: new Date(0),
       secure: true,
       sameSite: 'none',
