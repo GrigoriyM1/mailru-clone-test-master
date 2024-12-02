@@ -35,3 +35,5 @@ Q2CMICQPV27QB2GMDLS2OXHCMFWLD4GV
 postgresql://neondb_owner:0uMYlm7GSLck@ep-lingering-scene-a2wbmhx1.eu-central-1.aws.neon.tech/neondb?sslmode=require
 
 надо убрать src/ абсолютный путь 
+
+поубирать чтоб найти ошибку в nest js     httpOnly возможно
