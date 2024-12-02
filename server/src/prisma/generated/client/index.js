@@ -219,7 +219,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Sites\\PROJECTS-NEXTJS\\mailru-clone-test\\mailru-clone-test-master\\server\\prisma\\generated\\client",
+      "value": "D:\\Sites\\PROJECTS-NEXTJS\\mailru-clone-test\\mailru-clone-test-master\\server\\src\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -233,12 +233,12 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\Sites\\PROJECTS-NEXTJS\\mailru-clone-test\\mailru-clone-test-master\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\Sites\\PROJECTS-NEXTJS\\mailru-clone-test\\mailru-clone-test-master\\server\\src\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
     "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "schemaEnvPath": "../../../../.env"
   },
   "relativePath": "../..",
   "clientVersion": "6.0.0",
@@ -256,8 +256,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id             String     @id @default(cuid())\n  createdAt      DateTime   @default(now()) @map(\"created_at\")\n  updatedAt      DateTime   @updatedAt @map(\"updated_at\")\n  name           String\n  lastName       String\n  email          String     @unique\n  linkedEmail    String     @unique\n  password       String\n  avatar         String?\n  phone          String\n  birthdate      String\n  gender         String\n  points         Int?       @default(50)\n  level          String?    @default(\"Ученик\")\n  description    String?\n  isAdmin        Boolean?   @default(false) @map(\"is_admin\")\n  isVip          Boolean?   @default(false) @map(\"is_vip\")\n  answers        Answer[]\n  comments       Comment[]\n  questions      Question[]\n  likedAnswers   Answer[]   @relation(\"LikedAnswers\")\n  likedQuestions Question[] @relation(\"LikedQuestions\")\n\n  @@map(\"user\")\n}\n\nmodel Question {\n  id          String       @id @default(cuid())\n  createdAt   DateTime     @default(now()) @map(\"created_at\")\n  updatedAt   DateTime     @updatedAt @map(\"updated_at\")\n  themeText   String       @map(\"theme_text\")\n  text        String?      @default(\"\")\n  category    String\n  subcategory String\n  likes       Int?         @default(0)\n  isLeader    Boolean?     @default(false) @map(\"is_leader\")\n  userId      String?\n  additionals Additional[] @relation(\"Additional\")\n  answers     Answer[]\n  user        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)\n  likedBy     User[]       @relation(\"LikedQuestions\")\n\n  @@map(\"question\")\n}\n\nmodel Additional {\n  id         String   @id @default(cuid())\n  createdAt  DateTime @default(now()) @map(\"created_at\")\n  questionId String\n  text       String\n  question   Question @relation(\"Additional\", fields: [questionId], references: [id], onDelete: Cascade)\n\n  @@map(\"additional\")\n}\n\nmodel Answer {\n  id           String    @id @default(cuid())\n  createdAt    DateTime  @default(now()) @map(\"created_at\")\n  updatedAt    DateTime  @updatedAt @map(\"updated_at\")\n  text         String\n  isBestAnswer Boolean?  @default(false) @map(\"is_best_answer\")\n  questionId   String?\n  userId       String\n  likes        Int?      @default(0)\n  question     Question? @relation(fields: [questionId], references: [id])\n  user         User      @relation(fields: [userId], references: [id])\n  comments     Comment[]\n  likedBy      User[]    @relation(\"LikedAnswers\")\n\n  @@unique([userId, questionId])\n  @@map(\"answer\")\n}\n\nmodel Comment {\n  id        String   @id @default(cuid())\n  createdAt DateTime @default(now()) @map(\"created_at\")\n  updatedAt DateTime @updatedAt @map(\"updated_at\")\n  text      String\n  userId    String\n  answerId  String?\n  answer    Answer?  @relation(fields: [answerId], references: [id])\n  user      User     @relation(fields: [userId], references: [id])\n\n  @@map(\"comment\")\n}\n\nmodel Notification {\n  id        String            @id @default(cuid())\n  createdAt DateTime          @default(now()) @map(\"created_at\")\n  updatedAt DateTime          @updatedAt @map(\"updated_at\")\n  type      NotificationType? @default(DEFAULT)\n  points    Int?\n  title     String\n  text      String\n  subtitle  String?\n  url       String\n  avatars   String[]\n  userId    String\n  isRead    Boolean?          @default(false) @map(\"is_read\")\n\n  @@map(\"notification\")\n}\n\nmodel Report {\n  id          String     @id @default(cuid())\n  createdAt   DateTime   @default(now()) @map(\"created_at\")\n  updatedAt   DateTime   @updatedAt @map(\"updated_at\")\n  type        ReportType\n  elementId   String\n  elementLink String\n  title       String\n  description String?\n\n  @@map(\"report\")\n}\n\nenum NotificationType {\n  DEFAULT\n  POINTS\n}\n\nenum ReportType {\n  QUESTION\n  ANSWER\n}\n",
-  "inlineSchemaHash": "35b2a0976f93c89edee5ed7b2819ccd95dbebfc6d41575372df2b2aa79f8de85",
+  "inlineSchema": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated/client\"\n}\n\nmodel User {\n  id             String     @id @default(cuid())\n  createdAt      DateTime   @default(now()) @map(\"created_at\")\n  updatedAt      DateTime   @updatedAt @map(\"updated_at\")\n  name           String\n  lastName       String\n  email          String     @unique\n  linkedEmail    String     @unique\n  password       String\n  avatar         String?\n  phone          String\n  birthdate      String\n  gender         String\n  points         Int?       @default(50)\n  level          String?    @default(\"Ученик\")\n  description    String?\n  isAdmin        Boolean?   @default(false) @map(\"is_admin\")\n  isVip          Boolean?   @default(false) @map(\"is_vip\")\n  answers        Answer[]\n  comments       Comment[]\n  questions      Question[]\n  likedAnswers   Answer[]   @relation(\"LikedAnswers\")\n  likedQuestions Question[] @relation(\"LikedQuestions\")\n\n  @@map(\"user\")\n}\n\nmodel Question {\n  id          String       @id @default(cuid())\n  createdAt   DateTime     @default(now()) @map(\"created_at\")\n  updatedAt   DateTime     @updatedAt @map(\"updated_at\")\n  themeText   String       @map(\"theme_text\")\n  text        String?      @default(\"\")\n  category    String\n  subcategory String\n  likes       Int?         @default(0)\n  isLeader    Boolean?     @default(false) @map(\"is_leader\")\n  userId      String?\n  additionals Additional[] @relation(\"Additional\")\n  answers     Answer[]\n  user        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)\n  likedBy     User[]       @relation(\"LikedQuestions\")\n\n  @@map(\"question\")\n}\n\nmodel Additional {\n  id         String   @id @default(cuid())\n  createdAt  DateTime @default(now()) @map(\"created_at\")\n  questionId String\n  text       String\n  question   Question @relation(\"Additional\", fields: [questionId], references: [id], onDelete: Cascade)\n\n  @@map(\"additional\")\n}\n\nmodel Answer {\n  id           String    @id @default(cuid())\n  createdAt    DateTime  @default(now()) @map(\"created_at\")\n  updatedAt    DateTime  @updatedAt @map(\"updated_at\")\n  text         String\n  isBestAnswer Boolean?  @default(false) @map(\"is_best_answer\")\n  questionId   String?\n  userId       String\n  likes        Int?      @default(0)\n  question     Question? @relation(fields: [questionId], references: [id])\n  user         User      @relation(fields: [userId], references: [id])\n  comments     Comment[]\n  likedBy      User[]    @relation(\"LikedAnswers\")\n\n  @@unique([userId, questionId])\n  @@map(\"answer\")\n}\n\nmodel Comment {\n  id        String   @id @default(cuid())\n  createdAt DateTime @default(now()) @map(\"created_at\")\n  updatedAt DateTime @updatedAt @map(\"updated_at\")\n  text      String\n  userId    String\n  answerId  String?\n  answer    Answer?  @relation(fields: [answerId], references: [id])\n  user      User     @relation(fields: [userId], references: [id])\n\n  @@map(\"comment\")\n}\n\nmodel Notification {\n  id        String            @id @default(cuid())\n  createdAt DateTime          @default(now()) @map(\"created_at\")\n  updatedAt DateTime          @updatedAt @map(\"updated_at\")\n  type      NotificationType? @default(DEFAULT)\n  points    Int?\n  title     String\n  text      String\n  subtitle  String?\n  url       String\n  avatars   String[]\n  userId    String\n  isRead    Boolean?          @default(false) @map(\"is_read\")\n\n  @@map(\"notification\")\n}\n\nmodel Report {\n  id          String     @id @default(cuid())\n  createdAt   DateTime   @default(now()) @map(\"created_at\")\n  updatedAt   DateTime   @updatedAt @map(\"updated_at\")\n  type        ReportType\n  elementId   String\n  elementLink String\n  title       String\n  description String?\n\n  @@map(\"report\")\n}\n\nenum NotificationType {\n  DEFAULT\n  POINTS\n}\n\nenum ReportType {\n  QUESTION\n  ANSWER\n}\n",
+  "inlineSchemaHash": "080ca3f0a02e938d7613f5e6b31c56848e817a67090c62236a84185ce561ea3a",
   "copyEngine": true
 }
 
@@ -266,8 +266,8 @@ const fs = require('fs')
 config.dirname = __dirname
 if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
   const alternativePaths = [
+    "src/prisma/generated/client",
     "prisma/generated/client",
-    "generated/client",
   ]
   
   const alternativePath = alternativePaths.find((altPath) => {
@@ -296,7 +296,7 @@ Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node")
+path.join(process.cwd(), "src/prisma/generated/client/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "prisma/generated/client/schema.prisma")
+path.join(process.cwd(), "src/prisma/generated/client/schema.prisma")
