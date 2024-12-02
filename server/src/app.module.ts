@@ -12,6 +12,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { StripeModule } from './stripe/stripe.module';
 import { WebhookModule } from './webhook/webhook.module';
 import { TestModule } from './test/test.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -42,7 +43,7 @@ import { TestModule } from './test/test.module';
     ReportModule, 
     StripeModule, WebhookModule, TestModule, 
   ],
-  // controllers: [],
+  controllers: [AppController],
   // providers: [],
 })
 export class AppModule {}
