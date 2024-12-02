@@ -3,7 +3,8 @@ import {
 	ValidationOptions,
 	registerDecorator
 } from 'class-validator'
-import * as moment from 'moment'
+import moment from 'moment'
+//import * as moment from 'moment'
 
 // форматирует через moment и только потом валидиует
 

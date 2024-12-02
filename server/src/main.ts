@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import * as express from 'express'
-import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser'; // добавить в tsconfig.json - "esModuleInterop": true
 import { join } from 'path'
 import { AppModule } from './app.module'
 import { ResponseAddContentRangeToHeaderInterceptor } from './interceptors/response-add-content-range.interceptor'
