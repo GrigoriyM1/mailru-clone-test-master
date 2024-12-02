@@ -24,7 +24,7 @@
     "prisma:studio": "npx prisma studio",
     "prisma:migrate": "npx prisma migrate dev --name init",
     "postinstall": "prisma generate",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "vercel-build": "prisma generate && prisma migrate deploy && nest build"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^2.0.2",
