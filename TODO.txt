@@ -43,3 +43,4 @@ npx prisma migrate dev --name init
 multer vercel
 
 может попробовать на docker залить 
+попробовать на 2 для теста prisma тогда 

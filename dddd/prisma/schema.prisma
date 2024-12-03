@@ -6,9 +6,137 @@
 
 generator client {
   provider = "prisma-client-js"
+  // output   = "./generated/client"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String     @id @default(cuid())
+  createdAt      DateTime   @default(now()) @map("created_at")
+  updatedAt      DateTime   @updatedAt @map("updated_at")
+  name           String
+  lastName       String
+  email          String     @unique
+  linkedEmail    String     @unique
+  password       String
+  avatar         String?
+  phone          String
+  birthdate      String
+  gender         String
+  points         Int?       @default(50)
+  level          String?    @default("Ученик")
+  description    String?
+  isAdmin        Boolean?   @default(false) @map("is_admin")
+  isVip          Boolean?   @default(false) @map("is_vip")
+  answers        Answer[]
+  comments       Comment[]
+  questions      Question[]
+  likedAnswers   Answer[]   @relation("LikedAnswers")
+  likedQuestions Question[] @relation("LikedQuestions")
+
+  @@map("user")
+}
+
+model Question {
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+  themeText   String       @map("theme_text")
+  text        String?      @default("")
+  category    String
+  subcategory String
+  likes       Int?         @default(0)
+  isLeader    Boolean?     @default(false) @map("is_leader")
+  userId      String?
+  additionals Additional[] @relation("Additional")
+  answers     Answer[]
+  user        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likedBy     User[]       @relation("LikedQuestions")
+
+  @@map("question")
+}
+
+model Additional {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now()) @map("created_at")
+  questionId String
+  text       String
+  question   Question @relation("Additional", fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@map("additional")
+}
+
+model Answer {
+  id           String    @id @default(cuid())
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  text         String
+  isBestAnswer Boolean?  @default(false) @map("is_best_answer")
+  questionId   String?
+  userId       String
+  likes        Int?      @default(0)
+  question     Question? @relation(fields: [questionId], references: [id])
+  user         User      @relation(fields: [userId], references: [id])
+  comments     Comment[]
+  likedBy      User[]    @relation("LikedAnswers")
+
+  @@unique([userId, questionId])
+  @@map("answer")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  text      String
+  userId    String
+  answerId  String?
+  answer    Answer?  @relation(fields: [answerId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("comment")
+}
+
+model Notification {
+  id        String            @id @default(cuid())
+  createdAt DateTime          @default(now()) @map("created_at")
+  updatedAt DateTime          @updatedAt @map("updated_at")
+  type      NotificationType? @default(DEFAULT)
+  points    Int?
+  title     String
+  text      String
+  subtitle  String?
+  url       String
+  avatars   String[]
+  userId    String
+  isRead    Boolean?          @default(false) @map("is_read")
+
+  @@map("notification")
+}
+
+model Report {
+  id          String     @id @default(cuid())
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+  type        ReportType
+  elementId   String
+  elementLink String
+  title       String
+  description String?
+
+  @@map("report")
+}
+
+enum NotificationType {
+  DEFAULT
+  POINTS
+}
+
+enum ReportType {
+  QUESTION
+  ANSWER
 }
