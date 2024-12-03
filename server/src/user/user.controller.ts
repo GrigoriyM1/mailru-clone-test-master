@@ -5,7 +5,7 @@ import { Auth } from '../auth/decorators/auth.decorator';
 import { EditProfileDto } from './dto/edit-profile.dto';
 import { CurrentUser } from '../auth/decorators/user.decorator';
 import { EditProfilePageDto } from './dto/edit-profile-page.dto';
-import { FileUpload } from '../files/decorators/files.decorator';
+// import { FileUpload } from '../files/decorators/files.decorator';
 import { GetLeadersType } from './types/get-leaders.types';
 import { Response } from 'express'
 
@@ -75,7 +75,7 @@ export class UserController {
 
   @Patch('edit-profile-avatar')
   @Auth()
-  @FileUpload()
+  // @FileUpload()
   async editProfileAvatar(
     @UploadedFile() file: Express.Multer.File,
     @CurrentUser('id') userId: string,

@@ -19,7 +19,7 @@ async function bootstrap() {
 		// exposedHeaders: ['set-cookie'],
 	})
 
-	app.use('/uploads', express.static(join(__dirname, '..', 'uploads')))
+	app.use('/uploads', express.static(join(__dirname, '..', 'tmp/uploads')))	
 	app.use('/webhook', express.raw({ type: '*/*' })) // Это позволит получать raw body
 
 	// swagger
