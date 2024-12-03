@@ -23,8 +23,8 @@
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
     "prisma:migrate": "npx prisma migrate dev --name init",
-    "postinstall": "npm i && prisma generate",
-    "vercel-build": "npm i && npx prisma generate && prisma migrate deploy && nest build"
+    "postinstall": "npx prisma generate",
+    "vercel-build": "npx prisma generate && npx prisma migrate deploy && nest build"
   },
   "prisma": {
     "schema": "./src/prisma/schema.prisma"
