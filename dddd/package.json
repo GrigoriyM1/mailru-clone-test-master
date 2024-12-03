@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
 
     "postinstall": "prisma generate",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "vercel-build": "prisma generate && prisma migrate deploy && nest build"
   },
   "prisma": {
     "schema": "./src/prisma/schema.prisma"
