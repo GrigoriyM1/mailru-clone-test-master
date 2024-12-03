@@ -40,3 +40,4 @@ npx prisma migrate dev --name init
 вспомнил, https для куки 
 
 поубирать чтоб найти ошибку в nest js     httpOnly возможно
+multer vercel

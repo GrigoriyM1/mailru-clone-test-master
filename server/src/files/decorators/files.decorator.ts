@@ -12,7 +12,7 @@ export function FileUpload() {
 		UseInterceptors(
 			FileInterceptor('file', {
 				storage: diskStorage({
-					destination: '/tmp/uploads', // Или другой доступный путь // Папка, куда будут сохраняться загрузки
+					destination: './uploads', // Папка, куда будут сохраняться загрузки
 					filename: (req, file, callback) => {
 						const uniqueSuffix =
 							Date.now() + '-' + Math.round(Math.random() * 1e9)
