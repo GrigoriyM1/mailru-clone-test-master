@@ -3,11 +3,11 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as express from 'express';
 import { join } from 'path';
 import { AppModule } from './app.module';
-// import { ResponseAddContentRangeToHeaderInterceptor } from './interceptors/response-add-content-range.interceptor';
+import { ResponseAddContentRangeToHeaderInterceptor } from './interceptors/response-add-content-range.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    rawBody: true
+    rawBody: true,
   });
 
   app.enableCors({
@@ -26,7 +26,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
-  // app.useGlobalInterceptors(new ResponseAddContentRangeToHeaderInterceptor());
+  app.useGlobalInterceptors(new ResponseAddContentRangeToHeaderInterceptor());
 
   await app.listen(process.env.PORT! || 4200);
 }
