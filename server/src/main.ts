@@ -16,10 +16,10 @@ async function bootstrap() {
 	app.enableCors({
 		origin: [process.env.CLIENT_URL],
 		credentials: true,
-		exposedHeaders: ['set-cookie'],
+		// exposedHeaders: ['set-cookie'],
 	})
 
-	app.use('/uploads', express.static(join('/tmp', 'uploads')))
+	// app.use('/uploads', express.static(join(__dirname, '..', 'uploads')))
 	app.use('/webhook', express.raw({ type: '*/*' })) // Это позволит получать raw body
 
 	// swagger
