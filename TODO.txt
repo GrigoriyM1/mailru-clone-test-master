@@ -41,3 +41,5 @@ npx prisma migrate dev --name init
 
 поубирать чтоб найти ошибку в nest js     httpOnly возможно
 multer vercel
+
+может попробовать на docker залить 
