@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
+// import { AuthModule } from './auth/auth.module';
+// import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
-import { QuestionModule } from './question/question.module';
-import { AnswerModule } from './answer/answer.module';
-import { FilesModule } from './files/files.module';
-import { GatewayModule } from './gateway/gateway.module';
-import { NotificationModule } from './notification/notification.module';
-import { ReportModule } from './report/report.module';
+// import { QuestionModule } from './question/question.module';
+// import { AnswerModule } from './answer/answer.module';
+// import { FilesModule } from './files/files.module';
+// import { GatewayModule } from './gateway/gateway.module';
+// import { NotificationModule } from './notification/notification.module';
+// import { ReportModule } from './report/report.module';
 // import { MailerModule } from '@nestjs-modules/mailer';
-import { StripeModule } from './stripe/stripe.module';
-import { WebhookModule } from './webhook/webhook.module';
-import { TestModule } from './test/test.module';
+// import { StripeModule } from './stripe/stripe.module';
+// import { WebhookModule } from './webhook/webhook.module';
+// import { TestModule } from './test/test.module';
 import { AppController } from './app.controller';
 
 @Module({
