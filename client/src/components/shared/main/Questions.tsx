@@ -17,13 +17,10 @@ export const Questions = () => {
 	const [skip, setSkip] = useState(0);
 	const take = 20;
 
-	const {
-		data = [],
-		isPending,
-		refetch,
-	} = useQuery({
+	const { data = [], isPending } = useQuery({
 		queryKey: ['questions', category, skip],
 		queryFn: () => {
+			console.log('REQUEST')
 			return category === 'smstop'
 				? questionsService.getLeaders({})
 				: questionsService.getAll(category as string | undefined, skip, take);
@@ -100,3 +97,4 @@ export const Questions = () => {
 		</div>
 	);
 };
+

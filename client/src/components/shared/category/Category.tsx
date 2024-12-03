@@ -9,6 +9,8 @@ export const Category = () => {
 
 	const isOpenOrBest = category === 'best' || category === 'open';
 
+	console.log('CATEGORYYY ')
+
 	return (
 		<div className='bg-white w-full'>
 			<div className='p-10 pb-0 mb-6'>
